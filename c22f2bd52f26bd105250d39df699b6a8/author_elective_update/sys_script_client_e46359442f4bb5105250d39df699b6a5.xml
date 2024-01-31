@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>x_820501_integrate_permite_senha</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Change Password</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+      var password = '@Servicenow57586';
+g_form.setValue('user_password',password)
+  g_form.save();
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-06 17:34:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e46359442f4bb5105250d39df699b6a5</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Change Password</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_script_client_e46359442f4bb5105250d39df699b6a5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-06 19:43:43</sys_updated_on>
+        <table>sys_user</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>8e9189e0dbf19704cbf6d5b0cf9619e4</instance_id>
+        <instance_name>dev57586</instance_name>
+        <name>sys_script_client_e46359442f4bb5105250d39df699b6a5</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;x_820501_integrate_permite_senha&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Change Password&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+      var password = '@Servicenow57586';
+g_form.setValue('user_password',password)
+  g_form.save();
+   
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-12-06 17:34:55&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;e46359442f4bb5105250d39df699b6a5&lt;/sys_id&gt;&lt;sys_mod_count&gt;15&lt;/sys_mod_count&gt;&lt;sys_name&gt;Change Password&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Integrations" source="x_820501_integrate"&gt;c22f2bd52f26bd105250d39df699b6a8&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Integrations"&gt;c22f2bd52f26bd105250d39df699b6a8&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_e46359442f4bb5105250d39df699b6a5&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-12-06 19:43:43&lt;/sys_updated_on&gt;&lt;table&gt;sys_user&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2071271724</payload_hash>
+        <record_name>Change Password</record_name>
+        <reverted_from/>
+        <source>9a2f2bd52f26bd105250d39df699b6ac</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-06 19:43:43</sys_created_on>
+        <sys_id>0b2235002f0fb5105250d39df699b646</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18c40a856bd0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-06 19:43:43</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>cb223500600fb51098f0b05b89abd645</update_guid>
+        <update_guid_history>cb223500600fb51098f0b05b89abd645:2071271724,d39fa9c83ccbb510b9ee5f05f1ee4a1c:-1975179303,b4aee1c89bcbb510a6c7ac1dc1d2a2a3:1850524132,820e69c840cbb510be2ad8d01960a225:451594853,c38d658870cbb510d162203797124e1b:-2044348552,239ba1c410cbb510947d63c171567b4b:-334356,1d1a2d441acbb510558ef0ebcc3b38e6:-1461677736,1069adc06bcbb510ca659a20c48b7298:276079269,b318a1c0e2cbb5104e4941ae211a33ac:653640310,973669ccf68bb51005eb2be95d08a037:1003504166,6fb4ed4c988bb5109d7f04e5a3904ae9:1439613049,30522988a88bb510d139ddd5ddbbbd67:-446199194,05612d08148bb510f5a65e58ddaba629:-1853473830,3f2dd9c0ac8bb510ef80e2ae2b38d27a:-629945359,6f5699488a4bb510074fcf5ccb139662:1793258990,d0b491084c4bb5107db1561d9a8577da:-1922436456</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-17 17:43:08</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>01f77f825f594c48800ba6965d7c0084</sys_id>
+        <sys_metadata>e46359442f4bb5105250d39df699b6a5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Change Password</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent display_value="User">808fca20f90211108c8bd16244dfe7ee</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sys_script_client_e46359442f4bb5105250d39df699b6a5</sys_update_name>
+        <sys_update_version display_value="sys_script_client_e46359442f4bb5105250d39df699b6a5">0b2235002f0fb5105250d39df699b646</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-17 17:43:08</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

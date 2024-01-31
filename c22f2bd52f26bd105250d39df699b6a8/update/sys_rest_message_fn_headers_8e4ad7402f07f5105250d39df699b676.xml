@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_headers">
+    <sys_rest_message_fn_headers action="INSERT_OR_UPDATE">
+        <name>Authorization</name>
+        <rest_message_function display_value="SeriesList">ed4a9b442f07f5105250d39df699b631</rest_message_function>
+        <sys_class_name>sys_rest_message_fn_headers</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-07 03:19:55</sys_created_on>
+        <sys_id>8e4ad7402f07f5105250d39df699b676</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Authorization</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_rest_message_fn_headers_8e4ad7402f07f5105250d39df699b676</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-07 03:19:55</sys_updated_on>
+        <value>Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZWViZmNlY2NhYTllMjE4MzM3ZDY3YmQyOTdhZDhkYSIsInN1YiI6IjY1NTNjM2U0YWQ1MGYwMDEyNTJiNDY5NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.S-Z7J8kFrwpB2y9ZaC4aW5JPlUNczxTHPB8jfqn1Qwg</value>
+    </sys_rest_message_fn_headers>
+</record_update>

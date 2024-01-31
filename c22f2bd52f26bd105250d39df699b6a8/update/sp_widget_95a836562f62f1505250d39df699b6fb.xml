@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+	/* widget controller */
+	var c = this;
+
+	var parsedResponse = c.data.json;
+	// Atribui a array de resultados para c.results
+	c.upcoming = parsedResponse.results;
+	$scope.redirectToIntegrationPage = function (infor) {
+		//var encodedTitle = encodeURIComponent(id);
+	 var integrationURL = 'integration?id=integration_movies&infor=' + infor;
+    window.location.href = integrationURL;
+	};
+			
+c.getNumberOfStars = function(voteAverage) {
+    // Lógica de ajuste conforme necessário
+    return Math.round(voteAverage / 2); // Supondo que a avaliação seja de 0 a 10
+  };
+
+  // Função para determinar a classe da estrela com base na avaliação
+  c.getStarClass = function(voteAverage, starIndex) {
+    var numberOfFullStars = c.getNumberOfStars(voteAverage);
+
+    if (starIndex < numberOfFullStars) {
+      return 'fa fa-star';
+    } else if (starIndex === numberOfFullStars && voteAverage % 2 !== 0) {
+      return 'fa fa-star-half-o';
+    } else {
+      return 'fa fa-star-o';
+    }
+  };
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.heading {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  border-bottom: 1px solid  #ff2c1f;
+}
+.movies-container {
+  max-width: 968px;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.box .box-img {
+  width: 100%;
+  height: 270px;
+}
+.box .box-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+cursor: pointer;
+}
+.box .box-img img:hover {
+  transform: translatey(-10px);
+  transition: 0.3s all linear;
+}
+.box h3 {
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: white;
+}
+.box span {
+  font-size: 13px;
+}
+.coming-container {
+  display: grid;
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}
+.coming-container .box-img img:hover {
+  transform: translateY(0);
+  cursor:pointer;
+}
+.coming-container .box {
+  width: 100%;
+  height: 100%;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>integration_news_filmes</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Integration News filmes</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+
+ try { 
+ var r = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'MoviesUpcoming');
+
+ var response = r.execute();
+ var responseBody = response.getBody();
+ var httpStatus = response.getStatusCode();
+	var parsedResponse = JSON.parse(responseBody);
+		// Adiciona o objeto à variável 'data'
+		data.json = parsedResponse;
+	}
+	catch(ex) {
+		var message = ex.message;
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-19 04:06:33</sys_created_on>
+        <sys_id>95a836562f62f1505250d39df699b6fb</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>Integration News filmes</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_widget_95a836562f62f1505250d39df699b6fb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 16:27:20</sys_updated_on>
+        <template><![CDATA[<div>
+  <!--News Movies-->
+  <section class="movies" id="movies">
+    <h2 class="heading">Upcoming Movies</h2>
+    <!--Movies Container-->
+    <div class="movies-container">
+      <!--Box-1-->
+      <div class="box" ng-repeat="news in c.upcoming | limitTo: 9">
+        <div class="box-img">
+          <img ng-click="redirectToIntegrationPage(news.id)" src="https://image.tmdb.org/t/p/original{{news.poster_path}}" alt />
+        </div>
+        <h3 ng-click="redirectToIntegrationPage(news.id)">{{news.title}}</h3>
+        <span class="text-red fw-bold">{{news.release_date}} | <i ng-repeat="star in [].constructor(5) track by $index" class="{{c.getStarClass(news.vote_average, $index)}}" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </section>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

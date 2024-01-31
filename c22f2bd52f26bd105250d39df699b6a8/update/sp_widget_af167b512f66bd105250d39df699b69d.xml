@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope) {
+   
+
+    // Adiciona a inicialização do carrossel ao controlador existente
+    function initializeCarousel() {
+        // Define o intervalo para a transição automática do carrossel
+        var slideInterval = 4000; // em milissegundos
+
+        // Define o índice do slide atual
+        var currentSlide = 0;
+
+        // Obten todos os itens de slide
+        var slideItems = jQuery('.j_slide_item_btn');
+
+        // Define o primeiro slide a ser exibido
+        showSlide(currentSlide);
+
+        // Inicia a transição automática
+        var intervalId = setInterval(function () {
+            currentSlide = (currentSlide + 1) % slideItems.length;
+            showSlide(currentSlide);
+        }, slideInterval);
+
+        // Pausa a transição automática ao passar o mouse
+        jQuery('.j_slide_btn').hover(
+            function () {
+                clearInterval(intervalId);
+            },
+            function () {
+                intervalId = setInterval(function () {
+                    currentSlide = (currentSlide + 1) % slideItems.length;
+                    showSlide(currentSlide);
+                }, slideInterval);
+            }
+        );
+
+        // Adiciona eventos de clique para os pontos de navegação
+        jQuery('.j_slide_nav_btn span').on('click', function () {
+            currentSlide = jQuery(this).index();
+            showSlide(currentSlide);
+        });
+    }
+
+    function showSlide(index) {
+        // Oculta todos os slides
+        jQuery('.j_slide_item_btn').hide();
+
+        // Exibe o slide selecionado
+        jQuery('.j_slide_item_btn:eq(' + index + ')').fadeIn();
+
+        // Atualiza o estado ativo dos pontos de navegação
+        jQuery('.j_slide_nav_btn span').removeClass('active');
+        jQuery('.j_slide_nav_btn span:eq(' + index + ')').addClass('active');
+    }
+
+    // Chama a função initializeCarousel quando o controlador for carregado
+    initializeCarousel();
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+.j_slide_btn {
+   overflow-x: hidden;
+  position:relative;
+  display: flex;
+  align-items: center;
+}
+.j_slide_item_btn {
+  min-height:600px;
+  display: none;
+}
+
+.j_slide_item:first-child {
+  display: block;
+}
+
+
+.j_slide_item_btn img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  background: rgb(2, 5, 7);
+  opacity: 0.6;
+  
+
+}
+
+.j_slide_item_btn .btn-span {
+  font-size: 13px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.j_slide_item_btn .home-text h1 {
+  color: white;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+ 
+}
+
+.j_slide_item_btn .home-text {
+  position: absolute;
+  
+  color: white;
+    font-size: 30px;
+    font-weight: 700;
+    padding-top: 190px;
+    padding-left: 70px;
+  z-index: 1000;
+}
+
+
+.j_slide_item_btn a {
+  position: absolute;
+   left: 70px;
+  font-size: 30px;
+    padding: 0.7rem 1.4rem;
+    background: red;
+    color: white;
+    font-weight: 400;
+  
+    border-radius: 0.5rem;
+    
+  color: white;
+  cursor: pointer;
+}
+
+.j_slide_item_btn&gt;a:hover,
+.j_slide_item_btn&gt;a:active {
+  color: red;
+}
+
+.j_slide_nav_btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.j_slide_nav_btn span {
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  width: 20px;
+border-radius:20px ;
+  height: 20px;
+  cursor: pointer;
+}
+
+.j_slide_nav_btn span:hover,
+.j_slide_nav_btn span:active {
+  background-color: red;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>integration_filmes_tmdb</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>integration Filmes tmdb</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+ 
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-16 06:01:13</sys_created_on>
+        <sys_id>af167b512f66bd105250d39df699b69d</sys_id>
+        <sys_mod_count>199</sys_mod_count>
+        <sys_name>integration Filmes tmdb</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_widget_af167b512f66bd105250d39df699b69d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-12 03:04:05</sys_updated_on>
+        <template><![CDATA[
+<div>
+  <section class="filme_banner">
+    <div class="web_banner_slide j_slide_btn">
+      <div class="j_slide_item_btn text-center">
+        <figure>
+          <img class="btn-image" ng-src="/marvel.png" alt="" title="">
+        </figure>
+        <div class="home-text">
+          <span class="btn-span">Marvel Universe</span>
+          <h1>
+            Doctor Strange:<br />
+            Multiverse from madness
+          </h1>
+          <a href="" class="fw-bold" ng-href="" title="">Watch Now</a>
+        </div>
+
+      </div>
+      <div class="j_slide_item_btn text-center">
+        <figure>
+          <img class="btn-image" ng-src="/megamoviess.png" alt="" title="">
+        </figure>
+        <div class="home-text">
+          <span class="btn-span">Marvel Universe</span>
+          <h1>
+            Avengers: <br />
+            Infinty war
+          </h1>
+          <a href="" class="fw-bold" ng-href="" title="">Watch Now</a>
+        </div>
+
+      </div>
+
+      <div class="j_slide_item_btn text-center">
+        <figure>
+          <img ng-src="/marvel3.png" alt="" title="">
+        </figure>
+        <div class="home-text">
+          <span class="btn-span">Marvel Universe</span>
+          <h1>
+            Spider-Man: <br />
+            Far From Home
+          </h1>
+          <a href="" class="fw-bold" ng-href="" title="">Watch Now</a>
+        </div>
+
+
+      </div>
+
+      <div class="j_slide_item_btn text-center">
+        <figure>
+          <img ng-src="/marvel2.png" alt="" title="">
+        </figure>
+        <div class="home-text">
+          <span class="btn-span">Marvel Universe</span>
+          <h1>
+            Venom: Time of <br />
+            Carnage
+          </h1>
+          <a href="" class="fw-bold" ng-href="" title="">Watch Now</a>
+        </div>
+
+      </div>
+      <div class="j_slide_nav_btn">
+        <span> </span>
+        <span> </span>
+        <span> </span>
+        <span> </span>
+      </div>
+    </div>
+  </section>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

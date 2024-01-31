@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+/* Seu CSS existente */
+
+.video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Proporção para vídeos 16:9 */
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>integration_video_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Integration video widget</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-20 17:53:55</sys_created_on>
+        <sys_id>a69fbafa2faa75505250d39df699b6b5</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_name>Integration video widget</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_widget_a69fbafa2faa75505250d39df699b6b5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-22 02:25:42</sys_updated_on>
+        <template><![CDATA[<!-- Seu widget de vídeo no modal -->
+<div class="video">
+    <iframe ng-src="{{widgetInput.videoUrl}}" frameborder="0"></iframe>
+    <p class="p">Video: Work at Now</p>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">cb337fd92f26bd105250d39df699b6df</sp_column>
+        <sp_widget display_value="filmes">4a153a072f1ab1105250d39df699b6bb</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-16 05:57:16</sys_created_on>
+        <sys_id>f53577112f66bd105250d39df699b608</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_instance_f53577112f66bd105250d39df699b608</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-16 05:57:16</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=f53577112f66bd105250d39df699b608"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>8e9189e0dbf19704cbf6d5b0cf9619e4</instance_id>
+        <instance_name>dev57586</instance_name>
+        <name>sp_instance_f53577112f66bd105250d39df699b608</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance"><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>1</order><roles/><short_description/><size>md</size><sp_column display_value="1">cb337fd92f26bd105250d39df699b6df</sp_column><sp_widget display_value="filmes">4a153a072f1ab1105250d39df699b6bb</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-11-16 05:57:16</sys_created_on><sys_id>f53577112f66bd105250d39df699b608</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package><sys_policy/><sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope><sys_update_name>sp_instance_f53577112f66bd105250d39df699b608</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-11-16 05:57:16</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sys_translated_text action="delete_multiple" query="documentkey=f53577112f66bd105250d39df699b608"/></record_update>]]></payload>
+        <payload_hash>-240906980</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>9a2f2bd52f26bd105250d39df699b6ac</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-16 05:57:16</sys_created_on>
+        <sys_id>393577112f66bd105250d39df699b60a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18bd6b4851a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-16 05:57:16</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>3d3577118c66bd10ef2eeb5f71d17309</update_guid>
+        <update_guid_history>3d3577118c66bd10ef2eeb5f71d17309:-240906980</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">dee5fb112f66bd105250d39df699b65b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-16 06:00:18</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>0cf3fa45c17140f491428fd01c41aa89</sys_id>
+        <sys_metadata>f53577112f66bd105250d39df699b608</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sp_instance_f53577112f66bd105250d39df699b608</sys_update_name>
+        <sys_update_version display_value="sp_instance_f53577112f66bd105250d39df699b608">393577112f66bd105250d39df699b60a</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-16 06:00:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

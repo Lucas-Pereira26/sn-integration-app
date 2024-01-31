@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope, $rootScope, $location) {
+	var c = this;
+	$scope.isLoggedIn = c.data.isLoggedIn;
+	if(c.data.isLoggedIn){
+		$scope.username = c.data.log.name;
+		$scope.avatarUser = c.data.user_log;
+	}
+
+	////////integração com Server/////////
+	c.search = "";
+
+  c.send = function (event) {
+        if (event.keyCode === 13) { // 13 é o código da tecla "Enter"
+         $rootScope.$broadcast('integration_header', { key: 'Enter', search: c.search });
+					 $location.path('/integration').search('id=integration_ms_page&query=' + encodeURIComponent(c.search));
+        }
+    };
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+.dropdown-menu{
+  background-color: #020307;
+}
+.dropdown-menu li a {
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f8f9fa; /* Cor de fundo ao passar o mouse */
+}
+h1{
+  color:  $red;
+}
+h3{
+  color: #ffffff;
+}
+.navbar-static-top{
+  background-color: #020307;
+
+}
+.navbar-collapse{
+  margin-top: -1.7rem;
+}
+
+.anime_menu_top{
+  background-color: #020307;
+
+}
+
+.anime_menu_logo{
+  margin-top: 10px; 
+  width: 90px;
+  margin-bottom: 10px; 
+
+}
+.justify-content-end{
+  justify-content: end;
+}
+.form-control{
+  border-radius: 25px;
+  border-color:  $red;
+}
+.anime_menu_top button{
+  border-radius: 0px 25px 25px 0px;
+}
+.anime_menu_user_info, .anime_menu_user_img, .anime_menu_user_cart{
+  margin-left:18px; 
+}
+.anime_menu_user_info a{
+  font-size: 18px;
+  cursor: pointer;
+}
+.anime_menu_user_info a:hover,
+.anime_menu_user_info a:active,
+.anime_menu_user_cart a:hover,
+.anime_menu_user_cart a:active{
+  color: rgb(52, 38, 177) !important;
+}
+.anime_menu_user_img img{
+  width: 50px;
+  height:47px;
+  border-radius: 50%;
+  border: 3px solid $red;
+}
+.navbar-static-top{
+  z-index: auto;
+}
+.navbar{
+  margin-bottom: -2.8rem;
+}
+.navbar-nav {
+
+  margin: -19px;
+}
+.nav.navbar-nav li a {
+color: #ffffff;
+  text-decoration: none;
+  background-color: #020307;
+}
+.nav.navbar-nav li a:hover{
+  color: $red;
+}
+.nav.navbar-nav li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+
+.nav.navbar-nav li a {
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+  background-color: #020307;
+
+}
+
+.navbar-nav &gt; li &gt; a:focus{
+  box-shadow: inset 0 0 0 0.1rem #020307;
+}
+.nav.navbar-nav li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: $red;
+  transition: width 0.5s ease;
+}
+
+.nav.navbar-nav li a:hover::after {
+  width: 100%;
+}
+
+.navbar-inverse {
+  margin-bottom: -3rem;
+border-color: #000000; 
+}
+
+
+
+
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>integration_header</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Integration header</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	data.isLoggedIn = gs.getSession().isLoggedIn();
+	data.log = '';
+	var avatarUser= GlideAvatarFinder.getAvatarPath(gs.getUserID());
+	data.user_log = encodeURI(avatarUser ? avatarUser.toString() : '');
+
+	if(data.isLoggedIn){
+		data.id = gs.getUserID(); 
+		var user = gs.getUserID(); // retorna sys_id
+		var grusr = new GlideRecord("sys_user");
+		if (grusr.get(user)) {
+			data.log={
+				"name": grusr.getValue("first_name"),
+				"avatar":  data.user_log
+			}
+		}
+		var gdt = new GlideDateTime();
+		gdt.getDisplayValue();
+		var formater = gdt.getUserFormattedLocalTime()
+
+		if(formater > '04:00:00' && formater <= '12:00:00'){
+			data.state = 'Bom Dia';
+
+		}
+		else if(formater > '12:00:00' && formater <= '18:00:00'){
+			data.state = 'Boa Tarde';
+
+		}
+		else if(formater > '18:00:00'){
+			data.state = 'Boa Noite';
+		}
+		else if(formater > '00:00:00'){
+			data.state = 'Boa Noite';
+		}}
+
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <static>false</static>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-16 05:35:48</sys_created_on>
+        <sys_id>e72077592f26bd105250d39df699b687</sys_id>
+        <sys_mod_count>496</sys_mod_count>
+        <sys_name>Integration header</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_header_footer_e72077592f26bd105250d39df699b687</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-08 18:06:01</sys_updated_on>
+        <template><![CDATA[
+<div >
+  <div class="anime_menu_top ру-15">
+    <div class="container">
+      <div
+        class="row d-flex flex-wrap justify-content-space-between align-items-center"
+      >
+        <div class="col-md-4">
+          <figure class="figure">
+            <img
+              ng-src="caa0724a2f5e75505250d39df699b6fb.iix"
+              class="img-responsive anime_menu_logo"
+            />
+          </figure>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center anime_menu_top">
+          <div class="width-100">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                ng-model="c.search"
+                ng-keypress="c.send($event)"
+                placeholder="Search for a movie or serie"
+              />
+              <h1>{{c.message}}</h1>
+              <div class="input-group-btn">
+                <button class="btn bg-red text-white" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div
+          class="anime_menu_user col-md-4 d-flex flex-wrap justify-content-end align-items-center text-right"
+        >
+          <div
+            ng-if="isLoggedIn"
+            class="d-flex flex-wrap justify-content-end align-items-center"
+          >
+          <div class="anime_menu_user_info">
+            <div class="d-blok">
+                <h3>{{data.state}}, {{ ::username}}</h3>
+            </div>
+            <a class="text-red " ng-href="?id=integration_painel_user">My Account</a>
+            | <a class="text-red " role="menuitem" ng-href="{{::portal.logoutUrl}}" ng-click="collapse()"><i class="fa fa-sign-out" aria-hidden="true"></i> ${Logout}</a>
+        </div>
+        
+        <div class="anime_menu_user_img" ng-if="avatarUser">
+            <figure class="figure">
+                <img ng-src="{{avatarUser}}" class="img-responsive anime_menu_logo" />
+            </figure>
+        </div>
+        
+        <div class="anime_menu_user_img" ng-if="!avatarUser">
+            <figure class="figure">
+                <img ng-src="ffd290522f96b5505250d39df699b655.iix" class="img-responsive anime_menu_logo" />
+            </figure>
+        </div>
+        </div>
+        
+
+          <div
+            ng-if="!isLoggedIn"
+            class="d-flex flex-wrap justify-content-end align-items-center"
+          >
+            <div class="anime_menu_user_info">
+              <div class="d-blok">
+                <a class="text-red fw-bold" ng-href="#">Sign in</a>
+              </div>
+            </div>
+            <div class="anime_menu_user_img">
+              <figure class="figure">
+                <img
+                  ng-src="ffd290522f96b5505250d39df699b655.iix"
+                  class="img-responsive anime_menu_logo"
+                />
+              </figure>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Navegação do -->
+  <nav class="navbar ">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button
+          type="button"
+          class="navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      
+      <!-- Seu HTML existente aqui -->
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="bs-example-navbar-collapse-1"
+        style="display: flex !important"
+      >
+        <ul class="nav navbar-nav">
+          <li class="nav-item"><a href="integration">Movies</a></li>
+          <li class="nav-item">
+            <a href class="toggle-dropdown" data-toggle="dropdown" id="profile-dropdown"  role="menuitem" aria-haspopup="true">
+              Series
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="presentation"><a ng-href="integration?id=integration_page_list" role="menuitem">All</a></li>
+              <!-- Seu HTML existente aqui 
+              <li role="presentation"><a ng-href="" role="menuitem">Animation</a></li>
+              <li role="presentation"><a ng-href="" role="menuitem">Adventure</a></li>
+              <li role="presentation"><a ng-href="" role="menuitem">Drama</a></li>
+              <li role="presentation"><a ng-href="" role="menuitem">Family</a></li>
+              <li role="presentation"><a ng-href="" role="menuitem">Romance</a></li>
+              <li role="presentation"><a ng-href="" role="menuitem">Comedy</a></li>
+              <li role="presentation"><a ng-href="" role="menuitem">Science Fiction</a></li> 
+-->
+          </ul>
+          </li>
+          <li class="nav-item"><a href="">My Items</a></li>
+          <li class="nav-item"><a href="http://emersonpribeiro.com.br/" target="_blank">Support</a></li>
+          <li class="nav-item"><a href="https://lucas-pereira-perfil.netlify.app" target="_blank">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</div>
+ <!-- 
+<div
+  ng-if="!isLoggedIn"
+  class="d-flex flex-wrap justify-content-end align-items-center"
+ 
+>
+  <div class="anime_menu_user_info">
+    <div class="d-blok">
+      <a class="text-red fw-bold" ng-href="#">Sign in</a>
+    </div>
+  </div>
+  <div class="anime_menu_user_img">
+    <figure class="figure">
+      <img
+        ng-src="ffd290522f96b5505250d39df699b655.iix"
+        class="img-responsive anime_menu_logo"
+      />
+    </figure>
+  </div>
+</div>
+ -->]]></template>
+    </sp_header_footer>
+</record_update>

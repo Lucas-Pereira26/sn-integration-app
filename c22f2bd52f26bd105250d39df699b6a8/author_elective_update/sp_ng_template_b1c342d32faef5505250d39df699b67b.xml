@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="DELETE">
+        <id>modalTemplate.html</id>
+        <sp_widget display_value="Integration Page Movies">042f97922f26f1505250d39df699b6cc</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-22 02:49:59</sys_created_on>
+        <sys_id>b1c342d32faef5505250d39df699b67b</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>modalTemplate.html</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_ng_template_b1c342d32faef5505250d39df699b67b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-22 04:04:38</sys_updated_on>
+        <template><![CDATA[<!-- modalTemplate.html -->
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Movie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <iframe width="560" height="315" ng-src="{{videoUrl}}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close Record</button>
+    </div>
+</div>
+]]></template>
+    </sp_ng_template>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>8e9189e0dbf19704cbf6d5b0cf9619e4</instance_id>
+        <instance_name>dev57586</instance_name>
+        <name>sp_ng_template_b1c342d32faef5505250d39df699b67b</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_ng_template"&gt;&lt;sp_ng_template action="INSERT_OR_UPDATE"&gt;&lt;id&gt;modalTemplate.html&lt;/id&gt;&lt;sp_widget display_value="Integration Page Movies"&gt;042f97922f26f1505250d39df699b6cc&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_ng_template&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-11-22 02:49:59&lt;/sys_created_on&gt;&lt;sys_id&gt;b1c342d32faef5505250d39df699b67b&lt;/sys_id&gt;&lt;sys_mod_count&gt;25&lt;/sys_mod_count&gt;&lt;sys_name&gt;modalTemplate.html&lt;/sys_name&gt;&lt;sys_package display_value="Integrations" source="x_820501_integrate"&gt;c22f2bd52f26bd105250d39df699b6a8&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Integrations"&gt;c22f2bd52f26bd105250d39df699b6a8&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_ng_template_b1c342d32faef5505250d39df699b67b&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-11-22 04:04:38&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;!-- modalTemplate.html --&gt;
+&lt;div class="modal-content"&gt;
+    &lt;div class="modal-header"&gt;
+        &lt;h5 class="modal-title"&gt;Movie&lt;/h5&gt;
+        &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;
+            &lt;span aria-hidden="true"&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+        &lt;iframe width="560" height="315" ng-src="{{videoUrl}}" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+        &lt;button type="button" class="btn btn-danger" data-dismiss="modal"&gt;Cancel&lt;/button&gt;
+        &lt;button type="button" class="btn btn-primary" data-dismiss="modal"&gt;Close Record&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+]]&gt;&lt;/template&gt;&lt;/sp_ng_template&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1851169440</payload_hash>
+        <record_name>modalTemplate.html</record_name>
+        <reverted_from/>
+        <source>9a2f2bd52f26bd105250d39df699b6ac</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-22 04:04:38</sys_created_on>
+        <sys_id>def4525b2feef5505250d39df699b6df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18bf5338cc70000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-22 04:04:38</sys_updated_on>
+        <type>Angular ng-template</type>
+        <update_guid>56f4525bf4eef5504578cf44ccc3b1df</update_guid>
+        <update_guid_history>56f4525bf4eef5504578cf44ccc3b1df:1851169440,c3c49e1ba8eef550e18af3978682a4b7:3744406,f26496d747eef55052cf8b7719f84e75:1896641740,459396d732eef550abc0cfc2505b2a65:1851169440,7f83561701eef55042328be63f9bf01e:-1934135125,57f09ed347eef550b49b0a099a5bdbe6:266218969,00b09e1333eef550e6d65e9df458f6bd:-1870301083,f2901a53ffeef5502f83e21834fec40a:-1981823917,2f7f42938aeef550b952a58ad6fec66a:1851169440,255fc65391eef55016f79d76dc88128d:1716996657,f58e4e138feef550f589bbc0531f87c0:1851169440,de1e069f31aef550e00ecfbf3b063e20:1481941785,e8dc0e9f02aef550adedb733d8390b0b:1851169440,18bcce1ff6aef5505ece3f98a46bb59a:-1149316095,546cca1fe5aef550419412b6c99328a0:-835078401,211b061f58aef550470de45c4fe5a3c2:-1403598574,540b0a1f2daef550c6935dd5c1341cce:1851169440,aacace97c9aef5503424f854e944576e:338658598,1d898a9bcfaef55020acf71210ad7af3:1851169440,f7590a9b46aef5500e498c4b1560a830:-1535290619,fe78421b79aef5508e4219597a7f4c9f:-1906752221,2b47c2575caef550529eb3c57762dd89:426707826,5c964a9300aef550ebc3a366e401e478:1851169440,bb750ad3d0aef55004a5072dbe6484d6:1472587537,cc2446d3c7aef550c3b870e5366a509b:-1499121630,c1e3c2d3baaef550085a4514e29502bc:-229293826</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="modalTemplate.html">021c602f2fea39505250d39df699b631</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-22 15:04:53</sys_created_on>
+        <sys_db_object display_value="" name="sp_ng_template">sp_ng_template</sys_db_object>
+        <sys_id>32eefd707ea24a80af2c9b034a7d2400</sys_id>
+        <sys_metadata>b1c342d32faef5505250d39df699b67b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>modalTemplate.html</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sp_ng_template_b1c342d32faef5505250d39df699b67b</sys_update_name>
+        <sys_update_version display_value="sp_ng_template_b1c342d32faef5505250d39df699b67b">def4525b2feef5505250d39df699b6df</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-22 15:04:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

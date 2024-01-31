@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables>$white: #FFFFFF;&#13;
+$red: #E53637;</css_variables>
+        <footer display_value="Integration Footer">f98ec75e2fa2f1505250d39df699b600</footer>
+        <footer_fixed>false</footer_fixed>
+        <header display_value="Integration header">e72077592f26bd105250d39df699b687</header>
+        <name>Integration Theme</name>
+        <navbar_fixed>true</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-16 05:33:57</sys_created_on>
+        <sys_id>88df6f192f26bd105250d39df699b601</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Integration Theme</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_theme_88df6f192f26bd105250d39df699b601</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-17 16:18:44</sys_updated_on>
+        <turn_off_scss_compilation>false</turn_off_scss_compilation>
+    </sp_theme>
+</record_update>

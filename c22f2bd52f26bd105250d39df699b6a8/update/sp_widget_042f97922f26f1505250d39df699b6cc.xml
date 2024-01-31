@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope,$location,spModal,$sce,$uibModal,$timeout,$interval) {
+	var c = this;
+	$scope.redirectToIntegrationPage = function (infor) {
+		//var encodedTitle = encodeURIComponent(id);
+	 var integrationURL = 'integration?id=integration_movies&infor=' + infor;
+    window.location.href = integrationURL;
+
+	}
+
+
+	c.message = "";
+	c.search = "";
+
+	// Recupera o título da URL
+	c.title = $location.search().infor;
+	
+	// Lógica de inicialização aqui
+$scope.init = function() {
+  
+	// Consulta o servidor com o título recuperado
+	c.server.get({ movie_id: c.title }).then(function (response) {
+	
+//// api detalhes de filmes
+		var parsedResponse = response.data.json;
+		c.movies = parsedResponse;
+		console.log("Movies after API call:", c.movies);
+$scope.dadosCarregados = true; 
+
+		
+		//genero dos filmes
+		var jsonGenres =  response.data.json.genres;
+		// Array para armazenar os nomes
+		var genreNames = [];
+		// Loop através da resposta da API
+		for (var i = 0; i < jsonGenres.length; i++) {
+			// Adiciona o nome à array
+			genreNames.push(jsonGenres[i].name);
+		}
+		c.genres = genreNames.join(', ');
+
+
+/////api filmes recomendados"{"
+var parsedRecommendations  =response.data.recommendations;
+// Verifica se a resposta está vazia
+if (parsedRecommendations && parsedRecommendations.results && parsedRecommendations.results.length > 0) {
+    c.recom = parsedRecommendations.results;
+
+
+    console.log("Movies Recommendation:", c.recom);
+  } else {
+    c.not = "Nenhum filme recomendado encontrado.";
+  }
+//"}"
+	}, function (error) {
+		// Lida com erros
+		c.message = "Erro na pesquisa: " + error.statusText;
+	});
+
+	////////// api Video ID////////
+	c.server.get({ video_id: c.title }).then(function (response) {
+		var videoResponse = response.data.videos;
+console.log('Trusted Video:' + videoResponse);
+		
+		// Se houver um vídeo, chama a função para abrir o modal
+		if (videoResponse && videoResponse.results && videoResponse.results.length > 0) {
+			var videoKey = videoResponse.results[0].key;
+			c.video = videoKey;
+			c.trustedVideoUrl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + c.video);
+			console.log('Trusted Video URL:', c.trustedVideoUrl);
+		}
+	});
+	
+	// Função para abrir o modal
+	c.modalVideo = function () {  
+		// Gere a URL do vídeo com base no ID dinâmico
+		$scope.videoUrl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + c.video);
+		// Configurações do modal
+		var modalOptions = {
+			templateUrl: 'modal.html', // Altere para o caminho real do seu template
+			scope: $scope,
+			size: 'lg', 
+		};
+
+		// Abre o modal
+		var modalInstance = $uibModal.open(modalOptions);
+		// Exponha a instância do modal no escopo para referência posterior
+		$scope.modalInstance = modalInstance;
+	};
+	// Função para fechar o modal
+	$scope.fecharModal = function () {
+		// Feche o modal usando o método dismiss da instância do modal
+		$scope.modalInstance.dismiss('cancel');
+	};
+
+
+  
+};
+  // Inicialização no carregamento da página
+  $scope.init();
+	
+  c.getNumberOfStars = function(voteAverage) {
+    // Lógica de ajuste conforme necessário
+    return Math.round(voteAverage / 2); // Supondo que a avaliação seja de 0 a 10
+  };
+
+  // Função para determinar a classe da estrela com base na avaliação
+  c.getStarClass = function(voteAverage, starIndex) {
+    var numberOfFullStars = c.getNumberOfStars(voteAverage);
+
+    if (starIndex < numberOfFullStars) {
+      return 'fa fa-star';
+    } else if (starIndex === numberOfFullStars && voteAverage % 2 !== 0) {
+      return 'fa fa-star-half-o';
+    } else {
+      return 'fa fa-star-o';
+    }
+  };
+	
+	
+	
+	
+
+
+// Função para carregar mais filmes
+$scope.carouselNext = function () {
+    // Verifica se há mais filmes para carregar
+    if (c.recom.length > 5) {
+        // Remove os primeiros 5 filmes da lista e armazena na lista removedMovies
+        var removedMovies = c.recom.splice(0, 5);
+
+        // Adiciona os filmes removidos de volta à lista (ciclicamente)
+        c.recom = c.recom.concat(removedMovies);
+        
+    } 
+};
+
+// Função para retroceder no carrossel
+$scope.carouselPrev = function () {
+    // Adiciona os itens anteriores à lista
+    var addedBack = c.recom.splice(c.recom.length - 5, 5);
+    c.recom = addedBack.concat(c.recom);
+
+    // Inicializa o carrossel
+    $timeout(function () {
+        $('#recommendedMoviesCarousel').carousel('prev');
+    }, 0);
+};
+
+/// Inicializa o carrossel após o carregamento dos dados
+$timeout(function () {
+    var carousel = $('#recommendedMoviesCarousel');
+
+    // Inicializa o carrossel
+    carousel.carousel({
+        interval: 5000 // Defina o intervalo desejado (em milissegundos)
+    });
+
+    // Pausa o carrossel quando o mouse entra e reinicia quando sai
+    carousel.hover(
+        function () {
+            carousel.carousel('pause');
+        },
+        function () {
+            carousel.carousel('cycle');
+        }
+    );
+
+    // Configura um temporizador para chamar automaticamente carouselNext a cada 5 segundos
+    var timer = $interval(function () {
+        $scope.carouselNext();
+        $timeout(function () {
+            carousel.carousel('next'); // Mude para 'next' para avançar automaticamente
+        }, 0);
+    }, 6000); // Intervalo de 5000 milissegundos (5 segundos)
+
+    // Limpa o temporizador quando o controle é destruído (por exemplo, ao sair da página)
+    $scope.$on('$destroy', function () {
+        $interval.cancel(timer);
+    });
+}, 0);
+
+
+
+
+	
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>[ng-cloak] {
+  display: none !important;
+}
+
+h2 {
+  color: #fff;
+}
+h3 {
+  color: #fff;
+}
+h4{
+  color: rgb(241, 240, 240);
+}
+span{
+  color: #fff;
+}
+.custom-modal-style {
+  z-index: 9999;
+  /* Outras propriedades de estilo, se necessário */
+}
+
+.col-md-4{
+  margin-top: 25px;
+}
+.col-md-8{
+  margin-top: 35px;
+  right: 17px;
+}
+.img-responsive{
+  border-radius: 20px;
+  width: 21.8rem;
+    height: 30.8rem;
+}
+
+.section-btn {
+  position: relative;
+  height: 155vh;
+  width: 100%;
+  overflow: hidden;
+}
+.section-btn .fw-video {
+  position: absolute;
+  margin-top:0.9rem;
+  font-size: 15px;
+  padding: 0.7rem 1.4rem;
+  background: red;
+  color: white;
+  font-weight: 400;
+  border-radius: 0.7rem;
+  color: white;
+  cursor: pointer;
+}
+.section-btn .fw-video:hover {
+  color: red;
+  background: white;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.49;
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  margin:0 0 0 60px;
+}
+
+///////// Section 2 ////////////
+
+
+
+
+div:focus{
+  box-shadow: inset 0 0 0 0.1rem #020307;
+
+}
+
+.heading {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: white;
+  margin-top: 10rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid  #ff2c1f;
+}
+.movies-container {
+  max-width: 968px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  //grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+  //gap: 1rem;
+  //white-space: nowrap;
+  margin-top: 2rem;
+}
+.carousel-inner {
+  width: 100%;
+  
+}
+
+
+.carousel-control {
+
+  width: 45px;
+}
+.carousel-control.left{
+  margin-left: 35rem;
+}
+.carousel-control.right{
+  margin-right: 40rem;
+}
+
+
+.box {
+  margin-right: 10px; /* Adiciona espaço entre os itens */
+}
+
+.carousel-inner &gt; .item {
+  margin-top: 2.2rem;
+  display: flex; /* Utiliza um layout flexível para os itens dentro do item do carrossel */
+}
+
+
+
+.box .box-img {
+  width: 100%;
+  height: 25rem;
+}
+.box .box-img img {
+ // width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.box .box-img img:hover {
+  transform: translatey(-10px);
+  transition: 0.3s all linear;
+}
+ .text-btn{
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+.btn-date-info {
+  font-size: 12.7px;
+}
+.coming-container {
+  display: grid;
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}
+
+
+
+/* Adicione uma transição suave para a propriedade transform */
+.carousel-inner .item {
+  transition: transform 0.5s ease;
+}
+
+/* Certifique-se de que a posição inicial é 0 */
+.carousel-inner .item.left,
+.carousel-inner .item.right,
+.carousel-inner .item.prev,
+.carousel-inner .item.next,
+.carousel-inner .item.active {
+  transform: translateX(0);
+}
+
+/* Mova para a esquerda quando estiver à esquerda ou voltando */
+.carousel-inner .item.left.active,
+.carousel-inner .item.prev {
+  transform: translateX(-50%);
+}
+
+/* Mova para a direita quando estiver à direita ou avançando */
+.carousel-inner .item.right.active,
+.carousel-inner .item.next {
+  transform: translateX(100%);
+}
+
+/* Remova a imagem de fundo dos controles (se desejar) */
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none;
+}
+
+.carousel a:focus {
+ 
+  box-shadow: 0 0 0 0rem ;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .box {
+      width: 100%; /* Em telas menores, exibe os itens em uma única coluna */
+  }
+}
+@media (min-width: 768px) {
+  .btn-repeat{
+    width: 19rem;
+  }
+}
+ </css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>integration_page_movies</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Integration Page Movies</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function () {
+
+
+	if (input) {
+
+		/////buscar filmes por Id////////
+		var meuInclude = new integrationVUtils();
+		var resultado = meuInclude.process(input.movie_id);
+		data.json = resultado;
+
+
+		/////////////buscar videos por Id////////
+		var meuInclude2 = new integrationVUtils();
+		var videoResult = meuInclude2.processVideo(input.video_id);
+		data.videos = videoResult;
+
+		
+		/////////////buscar filmes recomendados por Id////////
+		var meuInclude3 = new integrationVUtils();
+		var recommendResult = meuInclude3.processRecom(input.movie_id);
+		data.recommendations = recommendResult;
+		for (var key in data.recommendations) {
+			console.log(key + ':', data.recommendations[key]);
+		}
+	}
+	
+	
+	
+	 data.records = getRecords();
+
+  function getRecords() {
+      var gr = new GlideRecord('u_course');
+      gr.query();
+  
+      // Array para armazenar cada objeto
+      var results = [];
+  
+      while (gr.next()) {
+          var resultsObj = {};
+          resultsObj.sysId = gr.getUniqueValue();
+          resultsObj.image = gr.getDisplayValue('u_image');
+          resultsObj.name = gr.getDisplayValue('u_name');
+          resultsObj.description = gr.getDisplayValue('u_description')
+  
+          results.push(resultsObj);
+      }
+  
+      return results;
+  }
+	
+
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-19 06:54:41</sys_created_on>
+        <sys_id>042f97922f26f1505250d39df699b6cc</sys_id>
+        <sys_mod_count>1458</sys_mod_count>
+        <sys_name>Integration Page Movies</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_widget_042f97922f26f1505250d39df699b6cc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-03 05:56:44</sys_updated_on>
+        <template><![CDATA[<!-- Recomendados ng-if="c.not"-->
+
+<section
+  class="section-btn"
+  ng-cloak
+  ng-show="dadosCarregados"
+  ng-if="c.not"
+  style="height: 75vh"
+>
+  <div
+    class="background-image"
+    ng-style="{ 'background-image': 'url(https://image.tmdb.org/t/p/original' + c.movies.backdrop_path + ')' }"
+  ></div>
+
+  <div class="container py-4">
+    <div class="row d-flex flex-wrap">
+      <div class="col-md-4">
+        <figure>
+          <img
+            class="img-responsive"
+            ng-src="https://image.tmdb.org/t/p/original{{c.movies.poster_path}}"
+            alt
+          />
+        </figure>
+      </div>
+      <div class="col-md-8">
+        <h2 class="text-red fw-bold">{{c.movies.original_title}}</h2>
+        <span>{{c.movies.release_date}} | {{c.genres}}</span>
+        <div>
+          <h3>The movie describes: <br /></h3>
+          <h4>{{c.movies.overview}}</h4>
+          <a href="#" class="fw-video" ng-click="c.modalVideo(c.video)" title
+            >Watch Now</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="movies" ng-if="c.not" id="movies">
+    <h2 class="heading">There is no recommendation for this movie</h2>
+  </section>
+</section>
+
+<!-- Recomendados ng-if="c.recom"-->
+
+<section class="section-btn" ng-cloak ng-show="dadosCarregados" ng-if="c.recom">
+  <div
+    class="background-image"
+    ng-style="{ 'background-image': 'url(https://image.tmdb.org/t/p/original' + c.movies.backdrop_path + ')' }"
+  ></div>
+
+  <div class="container py-4">
+    <div class="row d-flex flex-wrap">
+      <div class="col-md-4">
+        <figure>
+          <img
+            class="img-responsive"
+            ng-src="https://image.tmdb.org/t/p/original{{c.movies.poster_path}}"
+            alt
+          />
+        </figure>
+      </div>
+      <div class="col-md-8">
+        <h2 class="text-red fw-bold">{{c.movies.original_title}}</h2>
+        <span>{{c.movies.release_date}} | {{c.genres}}</span>
+        <div>
+          <h3>The movie describes: <br /></h3>
+          <h4>{{c.movies.overview}}</h4>
+          <a href="#" class="fw-video" ng-click="c.modalVideo(c.video)" title
+            >Watch Now</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Movies-->
+  <div id="recommendedMoviesCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <section class="movies" id="movies">
+        <h2 class="heading">Recommended Movies</h2>
+        <!--Movies Container-->
+        <div class="movies-container">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="row">
+                        <div class="col-sm-2 btn-repeat" ng-repeat="infor in c.recom | limitTo: 5">
+                            <div class="box">
+                                <div class="box-img">
+                                    <img ng-src="https://image.tmdb.org/t/p/original{{infor.poster_path}}" alt="{{infor.title}}" />
+                                </div>
+                                <h3 class="title">
+                                    <a class="text-btn" ng-click="redirectToIntegrationPage(infor.id)">{{infor.title}}</a>
+                                </h3>
+                                <span class="btn-date-info">{{infor.release_date}} |
+                                    <i ng-repeat="star in [].constructor(5) track by $index" class="{{c.getStarClass(infor.vote_average, $index)}}" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#" role="button" data-slide="prev" data-target="#recommendedMoviesCarousel" ng-click="carouselPrev()">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <!-- Utiliza a função loadMoreMovies() para carregar mais filmes -->
+    <a class="right carousel-control" href="#" role="button" data-slide="next" data-target="#recommendedMoviesCarousel" ng-click="carouselNext()">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+  
+</section>
+]]></template>
+    </sp_widget>
+</record_update>

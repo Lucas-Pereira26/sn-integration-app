@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller= function ($scope,$location,spModal,$sce,$uibModal){
+	/* widget controller */
+	
+		$scope.redirectToIntegrationPage = function (infor) {
+		//var encodedTitle = encodeURIComponent(id);
+	 var integrationURL = 'integration?id=integration_series_id&infor=' + infor;
+    window.location.href = integrationURL;
+
+	}
+	
+	var c = this;
+	// Uma array para armazenar os resultados
+	c.message = "";
+	c.search = "";
+	console.log('Client script ' + c.data.json);
+	// Recupera o título da URL
+	c.title = $location.search().infor;
+
+  
+ 
+	// Consulta o servidor com o título recuperado
+	c.server.get({ serie_id: c.title }).then(function (response) {
+c.series = response.data.json
+		
+		//c.series = result;
+
+		var jsonGenres =  response.data.json.genres;
+		// Array para armazenar os nomes
+		var genreNames = [];
+		// Loop através da resposta da API
+		for (var i = 0; i < jsonGenres.length; i++) {
+			// Adiciona o nome à array
+			genreNames.push(jsonGenres[i].name);
+		}
+		c.genres = genreNames.join(', ');
+		
+		/////api Series recomendados
+var parsedRecommendations = response.data.recommendations;
+	
+// Verifica se a resposta está vazia
+if (parsedRecommendations && parsedRecommendations.results && parsedRecommendations.results.length > 0) {
+  c.recom = parsedRecommendations.results;
+} else {
+  // Define uma mensagem quando a resposta está vazia
+  c.not = "Nenhum filme recomendado encontrado.";
+}
+
+
+
+	}, function (error) {
+		// Lida com erros
+		c.message = "Erro na pesquisa: " + error.statusText;
+	});
+	
+	
+	
+	////////// api Video ID////////
+	c.server.get({ video_id: c.title }).then(function (response) {
+		var videoResponse = response.data.videos;
+
+		// Se houver um vídeo, chama a função para abrir o modal
+		if (videoResponse && videoResponse.results && videoResponse.results.length > 0) {
+			var videoKey = videoResponse.results[0].key;
+			c.video = videoKey;
+			c.trustedVideoUrl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + c.video);
+			//console.log('Trusted Video URL:', c.trustedVideoUrl);
+		}
+	});
+	// Função para abrir o modal
+	c.modalVideo = function () {  
+		// Gere a URL do vídeo com base no ID dinâmico
+		$scope.videoUrl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + c.video);
+		// Configurações do modal
+		var modalOptions = {
+			templateUrl: 'modalseries.html', // Altere para o caminho real do seu template
+			scope: $scope,
+			size: 'lg', 
+		};
+
+		// Abre o modal
+		var modalInstance = $uibModal.open(modalOptions);
+		// Exponha a instância do modal no escopo para referência posterior
+		$scope.modalInstance = modalInstance;
+	};
+	// Função para fechar o modal
+	$scope.fecharModal = function () {
+		// Feche o modal usando o método dismiss da instância do modal
+		$scope.modalInstance.dismiss('cancel');
+	};
+	
+	//Recommended Series
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+h2 {
+  color: #fff;
+}
+h3 {
+  color: #fff;
+}
+h4{
+  color: rgb(241, 240, 240);
+}
+span{
+  color: #fff;
+}
+.custom-modal-style {
+  z-index: 9999;
+  /* Outras propriedades de estilo, se necessário */
+}
+
+.col-md-4{
+  margin-top: 25px;
+}
+.col-md-8{
+  margin-top: 35px;
+  right: 17px;
+}
+.img-responsive{
+  border-radius: 20px;
+  width: 21.8rem;
+    height: 30.8rem;
+}
+
+.section-btn {
+  position: relative;
+  height: 155vh;
+  width: 100%;
+  overflow: hidden;
+}
+.section-btn .fw-video {
+  position: absolute;
+  margin-top:0.9rem;
+  font-size: 15px;
+  padding: 0.7rem 1.4rem;
+  background: red;
+  color: white;
+  font-weight: 400;
+  border-radius: 0.7rem;
+  color: white;
+  cursor: pointer;
+}
+.section-btn .fw-video:hover {
+  color: red;
+  background: white;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.49;
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  margin:0 0 0 60px;
+}
+
+
+
+///////// Section 2 ////////////
+
+
+
+
+div:focus{
+  box-shadow: inset 0 0 0 0.1rem #020307;
+
+}
+
+.heading {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  border-bottom: 1px solid  #ff2c1f;
+}
+.movies-container {
+  max-width: 968px;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.box{
+  bottom: 50px;
+}
+.box .box-img {
+  width: 100%;
+  height: 25rem;
+}
+.box .box-img img {
+ // width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.box .box-img img:hover {
+  transform: translatey(-10px);
+  transition: 0.3s all linear;
+}
+ .text-btn{
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+.box .btn-date-infor {
+  font-size: 13px;
+}
+.coming-container {
+  display: grid;
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}
+.coming-container .box-img img:hover {
+  transform: translateY(0);
+  cursor:pointer;
+}
+.coming-container .box {
+  width: 100%;
+  height: 100%;
+}
+
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>integration_series_id</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Integration Series ID</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	if (input) {
+		try { 
+			var r = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'Series Search');
+			r.setStringParameterNoEscape('series_id', input.serie_id);
+
+			var response = r.execute();
+			var responseBody = response.getBody();
+			var httpStatus = response.getStatusCode();
+			var obj = JSON.parse(responseBody);
+			data.json = obj;
+		}
+		catch(ex) {
+			var message = ex.message;
+		}
+
+
+		/////////////buscar series por Id////////
+		try { 
+			var rVideo = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'Series Videos');
+			rVideo.setStringParameterNoEscape('series_id', encodeURIComponent(input.video_id));
+
+
+			var responseVideo = rVideo.execute();
+			var responseBodyVideo = responseVideo.getBody();
+			var httpStatusVideo = responseVideo.getStatusCode();
+
+
+			var parsedVideo = JSON.parse(responseBodyVideo);
+
+			// Adiciona o objeto à variável 'data'
+			data.videos = parsedVideo;	
+		}
+		catch(ex) {
+			var messageVideo = ex.message;
+		}
+
+	
+	/////////////buscar Series recomendados por Id////////
+
+		try { 
+			var rRecommendations = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'Series Recommendations');
+			rRecommendations.setStringParameterNoEscape('series_id', encodeURIComponent(input.serie_id));
+		   
+			var responseRecomm = rRecommendations.execute();
+			var responseBodyRecom= responseRecomm.getBody();
+			//var httpStatusRecommendations = response.getStatusCode();
+			var parsedRecom = JSON.parse(responseBodyRecom);
+
+			// Adiciona o objeto à variável 'data'
+			data.recommendations = parsedRecom;	
+		
+		   }
+		   catch(ex) {
+			var messageRecommendations = ex.message;
+			gs.error('Erro na chamada do servidor de movies recomendados: ' + messageRecommendations);
+		   }
+	}	
+})();
+
+
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-08 20:51:45</sys_created_on>
+        <sys_id>dfe4d4342f43b9105250d39df699b665</sys_id>
+        <sys_mod_count>158</sys_mod_count>
+        <sys_name>Integration Series ID</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_widget_dfe4d4342f43b9105250d39df699b665</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-25 16:24:00</sys_updated_on>
+        <template><![CDATA[<section class="section-btn">
+  <div class="background-image" style="background-image: url('https://image.tmdb.org/t/p/original{{c.series.backdrop_path}}')"></div>
+  <div class="container py-4">
+    <div class="row d-flex flex-wrap">
+      <div class="col-md-4">
+        <figure>
+          <img class="img-responsive" src="https://image.tmdb.org/t/p/original{{c.series.poster_path}}" alt />
+        </figure>
+      </div>
+      <div class="col-md-8">
+        <h2 class="text-red fw-bold">
+          {{c.series.name}}
+        </h2>
+        <span>{{c.series.first_air_date}} | {{c.genres}}</span>
+        <div>
+          <h3>
+            The movie describes: <br>
+            <h4>
+          
+            </h4>
+          </h3>
+          <a href="#"  class="fw-video" ng-click="c.modalVideo(c.video)" title="">Watch Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div >
+  <!--//Recommended Series-->
+  <section class="movies" id="movies" >
+    <h2 class="heading">Recommended Series</h2>
+    <!--Series Container-->
+    <div class="movies-container">
+      <!--Box-1-->
+      <div class="box" ng-repeat="infor in c.recom | limitTo: 5 ">
+        <div class="box-img">
+          <img ng-click="redirectToIntegrationPage(infor.id)" src="https://image.tmdb.org/t/p/original{{infor.poster_path}}" alt />
+          <h3 class="title"> <a class="text-btn" ng-click="redirectToIntegrationPage(infor.id)">{{infor.name}}</a></h3>
+          <span class="btn-date-info">{{infor.first_air_date}} | <i ng-repeat="star in [].constructor(5) track by $index" class="{{c.getStarClass(infor.vote_average, $index)}}" aria-hidden="true"></i></span>
+        </div>
+       
+      </div>
+    </div>
+  </section>
+</div>
+  
+  
+  
+  
+</section>
+]]></template>
+    </sp_widget>
+</record_update>

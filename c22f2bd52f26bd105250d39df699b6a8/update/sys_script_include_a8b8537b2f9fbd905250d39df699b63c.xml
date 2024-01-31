@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_820501_integrate.integrationVUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>integrationVUtils</name>
+        <script><![CDATA[var integrationVUtils = Class.create();
+integrationVUtils.prototype = {
+    initialize: function() {},
+
+
+    /////buscar filmes por Id////////
+    process: function(movieId) {
+
+        try {
+            var r = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'MoviesId');
+            r.setStringParameterNoEscape('movie_id', encodeURIComponent(movieId));
+            var response = r.execute();
+            var responseBody = response.getBody();
+
+            // Parseia o JSON e retorna como objeto
+            var parsedResponse = JSON.parse(responseBody);
+
+            // Adiciona o objeto à variável 'data'
+            return parsedResponse;
+        } catch (ex) {
+            var message = ex.message;
+            gs.error('Erro ao processar a solicitação: ' + message);
+        }
+
+    },
+
+    /////////////buscar filmes recomendados por Id////////
+    processRecom: function(movieId) {
+
+        var rRecommendations = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'MoviesRecommendations');
+        rRecommendations.setStringParameterNoEscape('movie_id', encodeURIComponent(movieId));
+
+        var responseRecomm = rRecommendations.execute();
+        var responseBodyRecom = responseRecomm.getBody();
+        //var httpStatusRecommendations = responseRecomm.getStatusCode();
+        var parsedRecom = JSON.parse(responseBodyRecom);
+
+        // Adiciona o objeto à variável 'data'
+
+        return parsedRecom;
+
+    },
+
+    processVideo: function(movieId) {
+        try {
+            var rVideo = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'MoviesVideos');
+            rVideo.setStringParameterNoEscape('video_id', encodeURIComponent(movieId));
+
+
+
+            var responseVideo = rVideo.execute();
+            var responseBodyVideo = responseVideo.getBody();
+             var parsedVideo = JSON.parse(responseBodyVideo);
+
+            
+                return parsedVideo;
+          
+                // Se a resposta não for um array, retorne um array vazio ou trate conforme necessário
+        
+        } catch (ex) {
+            var messageVideo = ex.message;
+            gs.error('Erro na chamada do servidor de vídeos: ' + messageVideo);
+        }
+    },
+
+    type: 'integrationVUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-31 05:05:00</sys_created_on>
+        <sys_id>a8b8537b2f9fbd905250d39df699b63c</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>integrationVUtils</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_script_include_a8b8537b2f9fbd905250d39df699b63c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-01 17:05:34</sys_updated_on>
+    </sys_script_include>
+</record_update>
