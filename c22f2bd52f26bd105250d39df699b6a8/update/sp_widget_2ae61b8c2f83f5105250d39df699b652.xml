@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope, $timeout) {
+  var c = this;
+  //// series Get a list of TV shows airing today.
+  var responseData = c.data.list;
+  // Pega o primeiro item da lista (se houver) ou o objeto inteiro
+  c.series = responseData.results ? responseData.results : responseData;
+  console.log("Client script executed successfully!", c.series);
+
+  // Aguarde até que o ciclo de vida do AngularJS esteja completo antes de iniciar o carrossel
+  $timeout(function () {
+    // Chama a função initializeCarousel quando o controlador for carregado
+    initializeCarousel();
+  });
+  // Adiciona a inicialização do carrossel ao controlador existente
+  function initializeCarousel() {
+    // Define o intervalo para a transição automática do carrossel
+    var slideInterval = 5000; // em milissegundos
+
+    // Define o índice do slide atual
+    var currentSlide = 0;
+
+    // Obten todos os itens de slide
+    var slideItems = jQuery(".j_slide_item");
+
+    // Define o primeiro slide a ser exibido
+    showSlide(currentSlide);
+
+    // Inicia a transição automática
+    var intervalId = setInterval(function () {
+      currentSlide = (currentSlide + 1) % slideItems.length;
+      showSlide(currentSlide);
+    }, slideInterval);
+
+    // Pausa a transição automática ao passar o mouse
+    jQuery(".j_slide").hover(
+      function () {
+        clearInterval(intervalId);
+      },
+      function () {
+        intervalId = setInterval(function () {
+          currentSlide = (currentSlide + 1) % slideItems.length;
+          showSlide(currentSlide);
+        }, slideInterval);
+      }
+    );
+
+    // Adiciona eventos de clique para os pontos de navegação
+    jQuery(".j_slide_nav span").on("click", function () {
+      currentSlide = jQuery(this).index();
+      showSlide(currentSlide);
+    });
+  }
+
+  function showSlide(index) {
+    // Oculta todos os slides
+    jQuery(".j_slide_item").hide();
+
+    // Exibe o slide selecionado
+    jQuery(".j_slide_item:eq(" + index + ")").fadeIn();
+
+    // Atualiza o estado ativo dos pontos de navegação
+    jQuery(".j_slide_nav span").removeClass("active");
+    jQuery(".j_slide_nav span:eq(" + index + ")").addClass("active");
+  }
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.heading {&#13;
+  max-width: 968px;&#13;
+  margin-left: auto;&#13;
+  margin-right: auto;&#13;
+  font-size: 2.2rem;&#13;
+  font-weight: 500;&#13;
+  color: white;&#13;
+  text-transform: uppercase;&#13;
+  border-bottom: 1px solid  #ff2c1f;&#13;
+}&#13;
+.j_slide {&#13;
+    overflow-x: hidden;&#13;
+   position:relative;&#13;
+   display: flex;&#13;
+   align-items: center;&#13;
+ }&#13;
+ .j_slide_item {&#13;
+   min-height:600px;&#13;
+   display: none;&#13;
+ }&#13;
+ &#13;
+ .j_slide_item:first-child {&#13;
+   display: block;&#13;
+ }&#13;
+ &#13;
+ &#13;
+ .j_slide_item img {&#13;
+   position: absolute;&#13;
+   width: 100%;&#13;
+   max-height:100%;&#13;
+   object-fit: cover;&#13;
+   object-position: center;&#13;
+   z-index: -1;&#13;
+   background: rgb(2, 5, 7);&#13;
+   opacity: 0.6;&#13;
+   &#13;
+ &#13;
+ }&#13;
+ &#13;
+ .j_slide_item .btn-span {&#13;
+   font-size: 13px;&#13;
+   color: white;&#13;
+   font-weight: 500;&#13;
+   text-transform: uppercase;&#13;
+ }&#13;
+ &#13;
+ .j_slide_item .home-text h1 {&#13;
+   color: white;&#13;
+     font-size: 60px;&#13;
+     font-weight: 700;&#13;
+     margin-bottom: 1rem;&#13;
+  &#13;
+ }&#13;
+ &#13;
+ .j_slide_item .home-text {&#13;
+   position: absolute;&#13;
+   &#13;
+   color: white;&#13;
+     font-size: 30px;&#13;
+     font-weight: 700;&#13;
+     padding-top: 190px;&#13;
+     padding-left: 70px;&#13;
+   z-index: 1000;&#13;
+ }&#13;
+ &#13;
+ &#13;
+ .j_slide_item a {&#13;
+   position: absolute;&#13;
+    left: 70px;&#13;
+   font-size: 30px;&#13;
+     padding: 0.7rem 1.4rem;&#13;
+     background: red;&#13;
+     color: white;&#13;
+     font-weight: 400;&#13;
+   &#13;
+     border-radius: 0.5rem;&#13;
+     &#13;
+   color: white;&#13;
+   cursor: pointer;&#13;
+ }&#13;
+ &#13;
+ .j_slide_item&gt;a:hover,&#13;
+ .j_slide_item&gt;a:active {&#13;
+   color: red;&#13;
+ }&#13;
+ &#13;
+ .j_slide_nav {&#13;
+   position: absolute;&#13;
+   left: 0;&#13;
+   bottom: 0;&#13;
+   margin-bottom: 10px;&#13;
+   width: 100%;&#13;
+   text-align: center;&#13;
+   margin-right: 10px;&#13;
+   margin-left: 10px;&#13;
+ }&#13;
+ &#13;
+ .j_slide_nav span {&#13;
+   display: inline-block;&#13;
+   background-color: rgb(255, 255, 255);&#13;
+   width: 20px;&#13;
+ border-radius:20px ;&#13;
+   height: 20px;&#13;
+   cursor: pointer;&#13;
+ }&#13;
+ &#13;
+ .j_slide_nav span:hover,&#13;
+ .j_slide_nav span:active {&#13;
+   background-color: red;&#13;
+ }&#13;
+&#13;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>integration_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Integration List</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  try { 
+    var r = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'SeriesList');
+   
+    var response = r.execute();
+    var responseBody = response.getBody();
+    var obj = JSON.parse(responseBody);
+    
+    // Verifica se a propriedade 'results' existe
+    if (obj.hasOwnProperty('results')) {
+        // Pega o primeiro item da lista (se houver)
+        data.list = obj.results;
+        //console.log('Client script executed successfully!' + JSON.stringify(data.list));
+    } else {
+        console.error('A propriedade "results" não foi encontrada no objeto JSON.');
+    }
+  }
+  catch(ex) {
+    var message = ex.message;
+  }
+
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-07 03:03:52</sys_created_on>
+        <sys_id>2ae61b8c2f83f5105250d39df699b652</sys_id>
+        <sys_mod_count>635</sys_mod_count>
+        <sys_name>Integration List</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_widget_2ae61b8c2f83f5105250d39df699b652</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-25 16:22:20</sys_updated_on>
+        <template><![CDATA[<h2 class="heading">List Series</h2>
+<div >
+  <section class="filme_banner">
+    <div class="web_banner_slide j_slide">
+      <div class="j_slide_item text-center" ng-repeat="serie in c.series | limitTo : 8">
+        <figure>
+          <img class="btn-image" ng-src="https://image.tmdb.org/t/p/original{{serie.poster_path}}" alt="" title="">
+        </figure>
+        <div class="home-text">
+          <h1>
+            {{serie.name}}<br/><br/>
+           
+          </h1>
+          <a href class="fw-bold" ng-href title>Watch Now</a>
+        </div>
+      </div>
+      <div class="j_slide_nav">
+        <span> </span>
+        <span> </span>
+        <span> </span>
+        <span> </span>
+        <span> </span>
+      </div>
+    </div>
+  </section>
+</div>
+<div>
+
+  ]]></template>
+    </sp_widget>
+</record_update>

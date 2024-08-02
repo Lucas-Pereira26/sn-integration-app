@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope,$location, $rootScope) {
+	var c = this;
+
+
+c.title = $location.search().query;
+	//// Reposta de filmes da pesquisa
+	// Consulta o servidor com o título recuperado
+	c.server.get({ movie_search: c.title }).then(function (response) {
+var moviesJson = response.data.json;
+c.movie = moviesJson.results;
+		}, function (error) {
+		// Lida com erros
+		c.message = "Erro na pesquisa: " + error.statusText;
+	});
+		$scope.redirectToIntegrationPage = function (infor) {
+		//var encodedTitle = encodeURIComponent(id);
+		var integrationURL = 'integration?id=integration_movies&infor=' + infor;
+		window.location.href = integrationURL;
+	};
+	
+c.getNumberOfStars = function(voteAverage) {
+    // Lógica de ajuste conforme necessário
+    return Math.round(voteAverage / 2); // Supondo que a avaliação seja de 0 a 10
+  };
+
+  // Função para determinar a classe da estrela com base na avaliação
+  c.getStarClass = function(voteAverage, starIndex) {
+    var numberOfFullStars = c.getNumberOfStars(voteAverage);
+
+    if (starIndex < numberOfFullStars) {
+      return 'fa fa-star';
+    } else if (starIndex === numberOfFullStars && voteAverage % 2 !== 0) {
+      return 'fa fa-star-half-o';
+    } else {
+      return 'fa fa-star-o';
+    }
+  };
+	
+};
+
+
+// $rootScope.$on('integration_header', function (event, data) {
+// 		// Verifica se data é um objeto e se tem a propriedade 'key'
+// 		if (data && data.key === 'Enter') {
+// 			// Atualiza a variável de pesquisa no Widget 2
+// 			c.search = data.search;
+
+// 			// Verifica se a variável de pesquisa foi definida corretamente
+// 			console.log("Valor de pesquisa recebido Series: " + c.search);
+
+// 			// Consulta o servidor com a nova pesquisa
+// 			c.server.get({ search: c.search }).then(function (response) {
+// 				console.log(response.data.series.results);
+
+// 				var parsedResponse = response.data.series;
+// 				// Atribui a array de resultados para c.results
+// 				c.serie = parsedResponse.results;
+// 			}, function (error) {
+// 				// Lida com erros
+// 				c.message = "Erro na pesquisa: " + error.statusText;
+// 			});
+// 		} else {
+// 			// Lida com o caso em que não há valor de pesquisa
+// 			c.message = "Por favor, digite um filme para pesquisar.";
+// 		}
+// 	});
+
+// 	$scope.redirectToIntegrationPage = function (infor) {
+// 		//var encodedTitle = encodeURIComponent(id);
+// 	 var integrationURL = 'integration?id=integration_movies&infor=' + infor;
+//     window.location.href = integrationURL;
+// 	};
+	]]></client_script>
+        <controller_as>c</controller_as>
+        <css>div:focus{
+  box-shadow: inset 0 0 0 0.1rem #020307;
+
+}
+.heading {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  border-bottom: 1px solid  #ff2c1f;
+}
+.movies-container {
+  max-width: 968px;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.box .box-img {
+  width: 100%;
+  height: 270px;
+}
+.box .box-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.box .box-img img:hover {
+  transform: translatey(-10px);
+  transition: 0.3s all linear;
+}
+.box h3 a{
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+.box span {
+  font-size: 13px;
+}
+.coming-container {
+  display: grid;
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}
+.coming-container .box-img img:hover {
+  transform: translateY(0);
+  cursor:pointer;
+}
+.coming-container .box {
+  width: 100%;
+  height: 100%;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>integration_movie_search</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Integration Movie Search</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	///// integração com Api TMDB buscas de filmes///////////
+	if(input){
+		try { 
+			var r = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'MoviesGet');
+			r.setStringParameterNoEscape('movies', encodeURIComponent(input.movie_search));
+
+
+			var response = r.execute();
+			var responseBody = response.getBody();
+			var httpStatus = response.getStatusCode();
+
+			// Parseia o JSON e retorna como objeto
+			var parsedResponse = JSON.parse(responseBody);
+
+			// Adiciona o objeto à variável 'data'
+			data.json = parsedResponse;
+
+		}
+		catch(ex) {
+			var message = ex.message;
+		}
+	}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-11 13:31:15</sys_created_on>
+        <sys_id>3bdc0ea92fc7bd105250d39df699b66b</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Integration Movie Search</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_widget_3bdc0ea92fc7bd105250d39df699b66b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-11 16:18:37</sys_updated_on>
+        <template><![CDATA[<div>
+
+  <!--Movies Container-->
+  <section class="movies" id="movies"  >
+    <h2 class="heading">Movies Wanted By: {{c.title}}</h2>
+    <!--Movies Container-->
+    <div class="movies-container">
+      <!--Box-1-->
+      <div class="box" ng-repeat="infor in c.movie">
+        <div class="box-img">
+          <img ng-click="redirectToIntegrationPage(infor.id)" src="https://image.tmdb.org/t/p/original{{infor.poster_path}}" alt />
+        </div>
+        <h3> <a ng-click="redirectToIntegrationPage(infor.id)">{{infor.title}}</a></h3>
+        <span>{{infor.release_date}} | <i ng-repeat="star in [].constructor(5) track by $index" class="{{c.getStarClass(infor.vote_average, $index)}}" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </section>
+  
+</div>]]></template>
+    </sp_widget>
+</record_update>

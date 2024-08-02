@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Integration Movies - Container 2</name>
+        <order>2</order>
+        <semantic_tag/>
+        <sp_page display_value="integration_movies">ad4cdf5e2fe2f1505250d39df699b6c6</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-14 13:21:30</sys_created_on>
+        <sys_id>1a6721262fc7f1505250d39df699b6ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Integration Movies - Container 2</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_container_1a6721262fc7f1505250d39df699b6ab</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-14 13:21:30</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>8e9189e0dbf19704cbf6d5b0cf9619e4</instance_id>
+        <instance_name>dev57586</instance_name>
+        <name>sp_container_1a6721262fc7f1505250d39df699b6ab</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>Integration Movies - Container 2</name><order>2</order><semantic_tag/><sp_page display_value="integration_movies">ad4cdf5e2fe2f1505250d39df699b6c6</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-12-14 13:21:30</sys_created_on><sys_id>1a6721262fc7f1505250d39df699b6ab</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Integration Movies - Container 2</sys_name><sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package><sys_policy/><sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope><sys_update_name>sp_container_1a6721262fc7f1505250d39df699b6ab</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-12-14 13:21:30</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>538948199</payload_hash>
+        <record_name>Integration Movies - Container 2</record_name>
+        <reverted_from/>
+        <source>9a2f2bd52f26bd105250d39df699b6ac</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-14 13:21:30</sys_created_on>
+        <sys_id>166721262fc7f1505250d39df699b6ae</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18c687d4b050000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-14 13:21:30</sys_updated_on>
+        <type>Container</type>
+        <update_guid>1a6721269fc7f15007a45298f25c3aad</update_guid>
+        <update_guid_history>1a6721269fc7f15007a45298f25c3aad:538948199</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Integration Movies - Container 2">876d0a662f8bf1505250d39df699b6cd</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-14 16:07:35</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>062d30c796104f8cb91e131f7ed676a1</sys_id>
+        <sys_metadata>1a6721262fc7f1505250d39df699b6ab</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Integration Movies - Container 2</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sp_container_1a6721262fc7f1505250d39df699b6ab</sys_update_name>
+        <sys_update_version display_value="sp_container_1a6721262fc7f1505250d39df699b6ab">166721262fc7f1505250d39df699b6ae</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-14 16:07:35</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

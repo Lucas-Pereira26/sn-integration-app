@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_data_broker_transform">
+    <sys_ux_data_broker_transform action="DELETE">
+        <acl_failure_result/>
+        <api_name>x_820501_integrate.Integration News Movies</api_name>
+        <batch_exclude>false</batch_exclude>
+        <description/>
+        <mutates_server_data>false</mutates_server_data>
+        <name>Integration News Movies</name>
+        <output_schema/>
+        <private>false</private>
+        <props/>
+        <required_translations>[ ]</required_translations>
+        <schema_version>1.0.0</schema_version>
+        <script><![CDATA[function transform(input) {
+const moviesNewsInclude = new x_820501_integrate.integrationVUtils();
+const resultNewsMovies = moviesNewsInclude.processNewsMovies();
+return resultNewsMovies;
+
+
+}]]></script>
+        <sys_class_name>sys_ux_data_broker_transform</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-02 04:03:41</sys_created_on>
+        <sys_id>8198168d47fb4210c637224f316d436c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Integration News Movies</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_ux_data_broker_transform_8198168d47fb4210c637224f316d436c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-02 04:07:13</sys_updated_on>
+    </sys_ux_data_broker_transform>
+    <sys_translated_text action="DELETE" query="documentkey=8198168d47fb4210c637224f316d436c"/>
+    <sys_es_latest_script action="DELETE">
+        <id>8198168d47fb4210c637224f316d436c</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-02 04:04:08</sys_created_on>
+        <sys_id>6fa81a4d47fb4210c637224f316d43e7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-02 04:04:08</sys_updated_on>
+        <table>sys_ux_data_broker_transform</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>1edd3b1c1b82b9946a85eb9b2d4bcb8c</instance_id>
+        <instance_name>dev190277</instance_name>
+        <name>sys_ux_data_broker_transform_8198168d47fb4210c637224f316d436c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ux_data_broker_transform"&gt;&lt;sys_ux_data_broker_transform action="INSERT_OR_UPDATE"&gt;&lt;acl_failure_result/&gt;&lt;api_name&gt;x_820501_integrate.Integration News Movies&lt;/api_name&gt;&lt;batch_exclude&gt;false&lt;/batch_exclude&gt;&lt;description/&gt;&lt;mutates_server_data&gt;false&lt;/mutates_server_data&gt;&lt;name&gt;Integration News Movies&lt;/name&gt;&lt;output_schema/&gt;&lt;private&gt;false&lt;/private&gt;&lt;props/&gt;&lt;required_translations&gt;[ ]&lt;/required_translations&gt;&lt;schema_version&gt;1.0.0&lt;/schema_version&gt;&lt;script&gt;&lt;![CDATA[function transform(input) {
+const moviesNewsInclude = new x_820501_integrate.integrationVUtils();
+const resultNewsMovies = moviesNewsInclude.processNewsMovies();
+return resultNewsMovies;
+
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_ux_data_broker_transform&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-08-02 04:03:41&lt;/sys_created_on&gt;&lt;sys_id&gt;8198168d47fb4210c637224f316d436c&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;Integration News Movies&lt;/sys_name&gt;&lt;sys_package display_value="Integrations" source="x_820501_integrate"&gt;c22f2bd52f26bd105250d39df699b6a8&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Integrations"&gt;c22f2bd52f26bd105250d39df699b6a8&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ux_data_broker_transform_8198168d47fb4210c637224f316d436c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-08-02 04:07:13&lt;/sys_updated_on&gt;&lt;/sys_ux_data_broker_transform&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=8198168d47fb4210c637224f316d436c"/&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;8198168d47fb4210c637224f316d436c&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-08-02 04:04:08&lt;/sys_created_on&gt;&lt;sys_id&gt;6fa81a4d47fb4210c637224f316d43e7&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-08-02 04:04:08&lt;/sys_updated_on&gt;&lt;table&gt;sys_ux_data_broker_transform&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1359604223</payload_hash>
+        <record_name>Integration News Movies</record_name>
+        <reverted_from/>
+        <source>be98937c47330210c637224f316d431a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-02 04:07:13</sys_created_on>
+        <sys_id>6c69d241473f4210c637224f316d4347</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>191114532910000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-02 04:07:13</sys_updated_on>
+        <type>Data Broker Server Script</type>
+        <update_guid>6069d2417d3f42107ba8513b5b666747</update_guid>
+        <update_guid_history>6069d2417d3f42107ba8513b5b666747:-1359604223,b3a89ecd88fb4210f1ac878ce3e67a3e:-869012082,8998168dacfb421063223b54b1b5966e:483842293</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-02 04:10:18</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_data_broker_transform">sys_ux_data_broker_transform</sys_db_object>
+        <sys_id>58c3a9032d9a4ef4a22237b8a8ce78e4</sys_id>
+        <sys_metadata>8198168d47fb4210c637224f316d436c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Integration News Movies</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sys_ux_data_broker_transform_8198168d47fb4210c637224f316d436c</sys_update_name>
+        <sys_update_version display_value="sys_ux_data_broker_transform_8198168d47fb4210c637224f316d436c">6c69d241473f4210c637224f316d4347</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-02 04:10:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>modalseries.html</id>
+        <sp_widget display_value="Integration Series ID">dfe4d4342f43b9105250d39df699b665</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-08 21:04:10</sys_created_on>
+        <sys_id>94b790bc2f43b9105250d39df699b676</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>modalseries.html</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_ng_template_94b790bc2f43b9105250d39df699b676</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-08 21:04:10</sys_updated_on>
+        <template><![CDATA[<!-- modalTemplate.html -->
+<div class="modal-content"style="width: 100%; margin-right: 70px;  background-color: #020307;">
+    <div class="modal-header">
+        <h5 class="modal-title">Movie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <!-- Ajuste a altura conforme necessário -->
+        <iframe width="100%" height="600vh" ng-src="{{videoUrl}}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="modal-footer">
+        <button type="button" value='cancel' class="btn btn-danger" data-dismiss="modal" ng-click="fecharModal()">Cancel</button>
+    </div>
+</div>
+
+]]></template>
+    </sp_ng_template>
+</record_update>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.newsletter {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2rem;
+}
+.newsletter h2 {
+    color: #fefefe;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.newsletter form {
+  background: #fff;
+  padding: 10px;
+  border-radius: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+.newsletter form input {
+  border: none;
+  outline: none;
+}
+.newsletter form .email {
+  width: 280px;
+}
+.newsletter form input::placeholder {
+  color: #020307;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.submit {
+     padding: 0.7rem 1.4rem;
+    background: #ff2c1f;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 0.5rem;
+}
+
+}
+.newsletter .btn {
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+}
+.footer {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .logo{
+   
+    color: #fefefe;
+    font-size: 3.4rem;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+}
+.footer .logo:hover {
+    color: #e74c3c; /* Cor dos ícones ao passar o mouse sobre eles */
+}
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social a {
+    margin:10px;
+     color: #fefefe;
+   font-size: 3.4rem; 
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; 
+}
+
+.social a:hover {
+    color: #e74c3c; /* Cor dos ícones ao passar o mouse sobre eles */
+}
+.copyright {
+  padding: 20px;
+  font-size: 1.4rem; 
+  text-align: center;
+  color:#fff;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>integration_footer</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Integration Footer</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <static>false</static>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-19 05:43:03</sys_created_on>
+        <sys_id>f98ec75e2fa2f1505250d39df699b600</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>Integration Footer</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_header_footer_f98ec75e2fa2f1505250d39df699b600</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-02 20:16:36</sys_updated_on>
+        <template><![CDATA[ <!--NewsLetter-->
+    <section class="newsletter" id="newsletter">
+      <h2>
+        Subscribe To Get<br />
+        Newsletter
+      </h2>
+      <form action="">
+        <input
+          type="email"
+          class="email"
+          placeholder="Enter Email..."
+          required
+        />
+        <input class="submit" type="submit" value="Subscribe" class="btn" />
+      </form>
+    </section>
+    <!--Footer-->
+    <section class="footer">
+      <a href="integration" class="logo"> <i class="fa fa-play-circle" aria-hidden="true"></i> Movies </a>
+      <div class="social">
+        <a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+      </div>
+    </section>
+
+    <div class="copyright">
+      <p>&#169; Lucas Developer Servicenow | Front-End Developer. &#187;</p>
+    </div>
+]]></template>
+    </sp_header_footer>
+</record_update>

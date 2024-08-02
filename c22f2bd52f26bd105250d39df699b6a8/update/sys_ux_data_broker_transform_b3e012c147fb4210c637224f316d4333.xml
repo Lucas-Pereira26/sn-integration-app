@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_data_broker_transform">
+    <sys_ux_data_broker_transform action="INSERT_OR_UPDATE">
+        <acl_failure_result/>
+        <api_name>x_820501_integrate.Integration ID Movies</api_name>
+        <batch_exclude>false</batch_exclude>
+        <description/>
+        <mutates_server_data>false</mutates_server_data>
+        <name>Integration ID Movies</name>
+        <output_schema/>
+        <private>false</private>
+        <props>[&#13;
+  {&#13;
+    "name": "movieId",&#13;
+    "label": "ID Movie",&#13;
+    "fieldType": "string",&#13;
+    "readOnly": false,&#13;
+    "mandatory": false,&#13;
+    "defaultValue": "",&#13;
+    "description": ""&#13;
+  }&#13;
+]</props>
+        <required_translations>[ {
+  "message" : "ID Movie",
+  "comment" : ""
+} ]</required_translations>
+        <schema_version>1.0.0</schema_version>
+        <script><![CDATA[function transform(input) {
+const moviesInclude = new x_820501_integrate.integrationVUtils();
+const resultMovies = moviesInclude.process(input.movieId);
+return resultMovies;
+
+
+}]]></script>
+        <sys_class_name>sys_ux_data_broker_transform</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-02 03:32:35</sys_created_on>
+        <sys_id>b3e012c147fb4210c637224f316d4333</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Integration ID Movies</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_ux_data_broker_transform_b3e012c147fb4210c637224f316d4333</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-02 03:54:53</sys_updated_on>
+    </sys_ux_data_broker_transform>
+    <sys_translated_text action="delete_multiple" query="documentkey=b3e012c147fb4210c637224f316d4333"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>b3e012c147fb4210c637224f316d4333</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-02 03:32:34</sys_created_on>
+        <sys_id>857192c147fb4210c637224f316d4325</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-02 03:32:34</sys_updated_on>
+        <table>sys_ux_data_broker_transform</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

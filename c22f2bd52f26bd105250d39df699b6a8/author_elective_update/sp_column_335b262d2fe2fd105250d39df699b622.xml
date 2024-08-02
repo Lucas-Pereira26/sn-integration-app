@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column">
+    <sp_column action="DELETE">
+        <class_name/>
+        <order>1</order>
+        <semantic_tag/>
+        <size>12</size>
+        <size_lg/>
+        <size_sm/>
+        <size_xs/>
+        <sp_row display_value="1">275b262d2fe2fd105250d39df699b61f</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-16 19:13:07</sys_created_on>
+        <sys_id>335b262d2fe2fd105250d39df699b622</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_column_335b262d2fe2fd105250d39df699b622</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-16 19:13:07</sys_updated_on>
+    </sp_column>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>8e9189e0dbf19704cbf6d5b0cf9619e4</instance_id>
+        <instance_name>dev57586</instance_name>
+        <name>sp_column_335b262d2fe2fd105250d39df699b622</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column"><sp_column action="INSERT_OR_UPDATE"><class_name/><order>1</order><semantic_tag/><size>12</size><size_lg/><size_sm/><size_xs/><sp_row display_value="1">275b262d2fe2fd105250d39df699b61f</sp_row><sys_class_name>sp_column</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-11-16 19:13:07</sys_created_on><sys_id>335b262d2fe2fd105250d39df699b622</sys_id><sys_mod_count>0</sys_mod_count><sys_name>1</sys_name><sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package><sys_policy/><sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope><sys_update_name>sp_column_335b262d2fe2fd105250d39df699b622</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-11-16 19:13:07</sys_updated_on></sp_column></record_update>]]></payload>
+        <payload_hash>-939597203</payload_hash>
+        <record_name>1</record_name>
+        <reverted_from/>
+        <source>9a2f2bd52f26bd105250d39df699b6ac</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-16 19:13:07</sys_created_on>
+        <sys_id>bb5baa2d2fe2fd105250d39df699b6bf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18bd98d229c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-16 19:13:07</sys_updated_on>
+        <type>Column</type>
+        <update_guid>bf5baa2dfde2fd104284b997f3e1d9be</update_guid>
+        <update_guid_history>bf5baa2dfde2fd104284b997f3e1d9be:-939597203</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="1">b2a3be9e2f22f1505250d39df699b618</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-19 03:44:48</sys_created_on>
+        <sys_db_object display_value="" name="sp_column">sp_column</sys_db_object>
+        <sys_id>5aff93f818a04e2ab60d6149644256b1</sys_id>
+        <sys_metadata>335b262d2fe2fd105250d39df699b622</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sp_column_335b262d2fe2fd105250d39df699b622</sys_update_name>
+        <sys_update_version display_value="sp_column_335b262d2fe2fd105250d39df699b622">bb5baa2d2fe2fd105250d39df699b6bf</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-19 03:44:48</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

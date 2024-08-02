@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_agent_chat_config">
+    <sp_agent_chat_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <name>VA Integration</name>
+        <order>100</order>
+        <portal>e4af6b192f26bd105250d39df699b610</portal>
+        <public>false</public>
+        <roles/>
+        <server_script><![CDATA[// (function($sp) {
+//     return {
+//         live_agent_queue: $sp.getDisplayValue('sp_chat_queue')
+//     };
+// })($sp);
+(function($sp) {
+    var isVAActive = GlidePluginManager.isActive('com.glide.cs.chatbot');
+    var configObj = {};
+    configObj.portal = $sp.getValue('url_suffix');
+    configObj.live_agent_only = !isVAActive;
+    return configObj;
+})($sp);]]></server_script>
+        <sys_class_name>sp_agent_chat_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-05 12:17:29</sys_created_on>
+        <sys_id>1342c7672f3a35105250d39df699b69d</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>VA Integration</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_agent_chat_config_1342c7672f3a35105250d39df699b69d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-05 13:09:29</sys_updated_on>
+    </sp_agent_chat_config>
+    <sys_translated_text action="delete_multiple" query="documentkey=1342c7672f3a35105250d39df699b69d"/>
+</record_update>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_820501_integrate.integrationVUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>integrationVUtils</name>
+        <script><![CDATA[var integrationVUtils = Class.create();
+integrationVUtils.prototype = {
+    initialize: function () { },
+
+
+   /////buscar filmes por nomes////////
+
+  searchMovies: function (movie_search) {
+    try {
+      var rSeacrh = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'MoviesGet');
+      rSeacrh.setStringParameterNoEscape('movies', encodeURIComponent(movie_search));
+
+
+      var responseSearch = rSeacrh.execute();
+      var responseBodySearch = responseSearch.getBody();
+      //var httpStatus = response.getStatusCode();
+
+      // Parseia o JSON e retorna como objeto
+      var parsedResponseSearch = JSON.parse(responseBodySearch);
+
+      // Adiciona o objeto à variável 'data'
+      return parsedResponseSearch;
+
+
+    }
+    catch (ex) {
+      var message = ex.message;
+      gs.error('Erro ao processar a solicitação: ' + message);
+    }
+
+  },
+
+
+  /////buscar filmes por Id////////
+  process: function (movieId) {
+    try {
+      var r = new sn_ws.RESTMessageV2("x_820501_integrate.ApiTmdb", "MoviesId");
+      r.setStringParameterNoEscape("movie_id", encodeURIComponent(movieId));
+      var response = r.execute();
+      var responseBody = response.getBody();
+
+      // Parseia o JSON e retorna como objeto
+      var parsedResponse = JSON.parse(responseBody);
+
+      // Adiciona o objeto à variável 'data'
+      return parsedResponse;
+    } catch (ex) {
+      var message = ex.message;
+      gs.error("Erro ao processar a solicitação: " + message);
+    }
+  },
+
+  /////////////buscar filmes recomendados por Id////////
+  processRecom: function (movieId) {
+    var rRecommendations = new sn_ws.RESTMessageV2(
+      "x_820501_integrate.ApiTmdb",
+      "MoviesRecommendations"
+    );
+    rRecommendations.setStringParameterNoEscape(
+      "movie_id",
+      encodeURIComponent(movieId)
+    );
+
+    var responseRecomm = rRecommendations.execute();
+    var responseBodyRecom = responseRecomm.getBody();
+    //var httpStatusRecommendations = responseRecomm.getStatusCode();
+    var parsedRecom = JSON.parse(responseBodyRecom);
+
+    // Adiciona o objeto à variável 'data'
+
+    return parsedRecom;
+  },
+
+  processVideo: function (movieId) {
+    try {
+      var rVideo = new sn_ws.RESTMessageV2(
+        "x_820501_integrate.ApiTmdb",
+        "MoviesVideos"
+      );
+      rVideo.setStringParameterNoEscape(
+        "video_id",
+        encodeURIComponent(movieId)
+      );
+
+      var responseVideo = rVideo.execute();
+      var responseBodyVideo = responseVideo.getBody();
+      var parsedVideo = JSON.parse(responseBodyVideo);
+
+      return parsedVideo;
+
+      // Se a resposta não for um array, retorne um array vazio ou trate conforme necessário
+    } catch (ex) {
+      var messageVideo = ex.message;
+      gs.error("Erro na chamada do servidor de vídeos: " + messageVideo);
+    }
+  },
+
+  newMovies: function () {
+    ////Api TMDB novos filmes///////////
+    try {
+      var newR = new sn_ws.RESTMessageV2(
+        "x_820501_integrate.ApiTmdb",
+        "NowPlay"
+      );
+      var newrResponse = newR.execute();
+      var newResponseBody = newrResponse.getBody();
+      //var httpStatusNew = newrResponse.getStatusCode();
+      // Parseia o JSON e retorna como objeto
+      var parsedNewResponse = JSON.parse(newResponseBody);
+
+      // Adiciona o objeto à variável 'data'
+      return parsedNewResponse;
+    } catch (ex) {
+      var messageNew = ex.message;
+    }
+  },
+
+  //Movies Upcoming
+
+  upcoming: function () {
+    try {
+      var rUpcoming = new sn_ws.RESTMessageV2(
+        "x_820501_integrate.ApiTmdb",
+        "MoviesUpcoming"
+      );
+
+      var upcoming = rUpcoming.execute();
+      var responseBodyUpcoming = upcoming.getBody();
+      //var httpStatus = upcoming.getStatusCode();
+      var parsedResponse = JSON.parse(responseBodyUpcoming);
+      // Adiciona o objeto à variável 'data'
+      return parsedResponse;
+    } catch (ex) {
+      var message = ex.message;
+    }
+  },
+  //////////////////////// SERIES API TMDB \\\\\\\\\\\\\\\\\\\\\\\\\\
+  
+seriesGet: function(serie_search){
+  try { 
+    var searchSerie = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'SeriesGetSearch');
+    searchSerie.setStringParameterNoEscape('tv', encodeURIComponent(serie_search));
+   
+   
+   
+    var responseSeires = searchSerie.execute();
+    var responseBodySeries = responseSeires.getBody();
+    //var httpStatus = responseSeires.getStatusCode();
+      // Parseia o JSON e retorna como objeto
+         var parseResponse = JSON.parse(responseBodySeries);
+   
+         // Adiciona o objeto à variável 'data'
+         return parseResponse;
+   
+   }
+   catch(ex) {
+    var messageSeries = ex.message;
+   }
+},
+  seriesId: function (id_series) {
+    try {
+      var idSeries = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'Series Search');
+      idSeries.setStringParameterNoEscape('series_id', id_series);
+
+      var responseSeriesId = idSeries.execute();
+      var responseBodySeries = responseSeriesId.getBody();
+      //var httpStatus = responseSeriesId.getStatusCode();
+      var objIdSeries = JSON.parse(responseBodySeries);
+      return objIdSeries;
+    }
+    catch (ex) {
+      var message = ex.message;
+    }
+
+  },
+
+
+  ///buscar Series recomendados por Id//
+  seriesRecommends: function (serie_id) {
+
+
+    try {
+      var rRecommendations = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'Series Recommendations');
+      rRecommendations.setStringParameterNoEscape('series_id', encodeURIComponent(serie_id));
+
+      var responseRecomm = rRecommendations.execute();
+      var responseBodyRecom = responseRecomm.getBody();
+      //var httpStatusRecommendations = response.getStatusCode();
+      var parsedRecom = JSON.parse(responseBodyRecom);
+
+      // Adiciona o objeto à variável 'data'
+      return parsedRecom;
+
+    }
+
+    catch (ex) {
+      var messageRecommendations = ex.message;
+      gs.error('Erro na chamada do servidor de movies recomendados: ' + messageRecommendations);
+    }
+  },
+
+
+///Series Videos/////
+seriesVideos: function(video_id){
+  try { 
+    var rVideo = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'Series Videos');
+    rVideo.setStringParameterNoEscape('series_id', encodeURIComponent(video_id));
+
+
+    var responseVideo = rVideo.execute();
+    var responseBodyVideo = responseVideo.getBody();
+   // var httpStatusVideo = responseVideo.getStatusCode();
+
+
+    var parsedVideo = JSON.parse(responseBodyVideo);
+
+    // Adiciona o objeto à variável 'data'
+  return parsedVideo;	
+  }
+  catch(ex) {
+    var messageVideo = ex.message;
+  }
+},
+
+
+  // Carrosel de lista de series
+  listSerie: function () {
+    try {
+      var rList = new sn_ws.RESTMessageV2(
+        "x_820501_integrate.ApiTmdb",
+        "SeriesList"
+      );
+
+      var responseList = rList.execute();
+      var responseBodyList = responseList.getBody();
+      var obj = JSON.parse(responseBodyList);
+
+      // Verifica se a propriedade 'results' existe
+      if (obj.hasOwnProperty("results")) {
+        // Pega o primeiro item da lista (se houver)
+        return obj.results;
+      } else {
+        console.error(
+          'A propriedade "results" não foi encontrada no objeto JSON.'
+        );
+      }
+    } catch (ex) {
+      var message = ex.message;
+    }
+  },
+  airSeries: function () {
+    ////// Get a list of TV shows that air in the next 7 days.
+    try {
+      var rAir = new sn_ws.RESTMessageV2(
+        "x_820501_integrate.ApiTmdb",
+        "Series On The Air"
+      );
+      var responseAir = rAir.execute();
+      var responseBodyAir = responseAir.getBody();
+      //var httpStatusAir = responseAir.getStatusCode();
+
+      var objAir = JSON.parse(responseBodyAir);
+
+      // Verifica se a propriedade 'results' existe
+      if (objAir.hasOwnProperty("results")) {
+        // Pega o primeiro item da lista (se houver)
+        return objAir.results;
+      } else {
+        console.error(
+          'A propriedade "results" não foi encontrada no objeto JSON.'
+        );
+      }
+    } catch (ex) {
+      var message2 = ex.message2;
+    }
+  },
+    type: 'integrationVUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-31 05:05:00</sys_created_on>
+        <sys_id>a8b8537b2f9fbd905250d39df699b63c</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>integrationVUtils</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_script_include_a8b8537b2f9fbd905250d39df699b63c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-02 05:59:43</sys_updated_on>
+    </sys_script_include>
+</record_update>

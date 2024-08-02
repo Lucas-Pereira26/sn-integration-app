@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="m2m_theme_style">
+    <m2m_theme_style action="INSERT_OR_UPDATE">
+        <applicability/>
+        <order>0</order>
+        <style display_value="Dark">e09ef7ae07103010e03948f78ad3002c</style>
+        <sys_class_name>m2m_theme_style</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-09 05:09:58</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d2007d722f2bf1105250d39df699b691</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>m2m_theme_style_d2007d722f2bf1105250d39df699b691</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-09 05:09:58</sys_updated_on>
+        <theme display_value="Integration Theme">61e4a1f22fe7f1105250d39df699b644</theme>
+    </m2m_theme_style>
+</record_update>

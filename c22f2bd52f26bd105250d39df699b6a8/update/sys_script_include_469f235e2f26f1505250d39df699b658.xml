@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_820501_integrate.tmdbapiUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>tmdbapiUtils</name>
+        <script><![CDATA[var tmdbapiUtils = Class.create();
+tmdbapiUtils.prototype = {
+    initialize: function() {
+    },
+apiTmdb: function(search){
+try { 
+			var r = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'MoviesGet');
+			r.setStringParameterNoEscape('movies',search);
+
+
+			var response = r.execute();
+			var responseBody = response.getBody();
+			var httpStatus = response.getStatusCode();
+
+			// Parseia o JSON e retorna como objeto
+			var parsedResponse =JSON.stringify(responseBody);
+
+			// Adiciona o objeto à variável 'data'
+		    return parsedResponse;
+
+		}
+		catch(ex) {
+			var message = ex.message;
+		}	
+},
+    type: 'tmdbapiUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-19 08:10:05</sys_created_on>
+        <sys_id>469f235e2f26f1505250d39df699b658</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>tmdbapiUtils</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_script_include_469f235e2f26f1505250d39df699b658</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-19 08:18:53</sys_updated_on>
+    </sys_script_include>
+</record_update>

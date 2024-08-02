@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope,$location) {
+	/* widget controller */
+	var c = this;
+	//// series Get a list of TV shows airing today.
+	var responseData = c.data.list;
+	// Pega o primeiro item da lista (se houver) ou o objeto inteiro
+	c.series = responseData.results ? responseData.results : responseData;
+	console.log("Client script executed successfully!", c.series);
+
+
+
+	$scope.redirectToIntegrationPage = function (infor) {
+		//var encodedTitle = encodeURIComponent(id);
+		var integrationURL = 'integration?id=integration_series_id&infor=' + infor;
+		window.location.href = integrationURL;
+	};
+
+	c.getNumberOfStars = function(voteAverage) {
+		// Lógica de ajuste conforme necessário
+		return Math.round(voteAverage / 2); // Supondo que a avaliação seja de 0 a 10
+	};
+
+	// Função para determinar a classe da estrela com base na avaliação
+	c.getStarClass = function(voteAverage, starIndex) {
+		var numberOfFullStars = c.getNumberOfStars(voteAverage);
+
+		if (starIndex < numberOfFullStars) {
+			return 'fa fa-star';
+		} else if (starIndex === numberOfFullStars && voteAverage % 2 !== 0) {
+			return 'fa fa-star-half-o';
+		} else {
+			return 'fa fa-star-o';
+		}
+	};
+
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>&#13;
+ &#13;
+ /////// div 2////&#13;
+ div:focus{&#13;
+    box-shadow: inset 0 0 0 0.1rem #020307;&#13;
+  &#13;
+  }&#13;
+  .heading {&#13;
+    max-width: 968px;&#13;
+    margin-left: auto;&#13;
+    margin-right: auto;&#13;
+    font-size: 2.2rem;&#13;
+    font-weight: 500;&#13;
+    color: white;&#13;
+    text-transform: uppercase;&#13;
+    border-bottom: 1px solid  #ff2c1f;&#13;
+  }&#13;
+  .movies-container {&#13;
+    max-width: 968px;&#13;
+    margin-right: auto;&#13;
+    margin-left: auto;&#13;
+    display: grid;&#13;
+    grid-template-columns: repeat(auto-fit, minmax(180px, auto));&#13;
+    gap: 1rem;&#13;
+    margin-top: 2rem;&#13;
+  }&#13;
+  .box .box-img {&#13;
+    width: 100%;&#13;
+    height: 270px;&#13;
+  }&#13;
+  .box .box-img img {&#13;
+    width: 100%;&#13;
+    height: 100%;&#13;
+    object-fit: cover;&#13;
+    border-radius: 20px;&#13;
+    cursor: pointer;&#13;
+  }&#13;
+  .box .box-img img:hover {&#13;
+    transform: translatey(-10px);&#13;
+    transition: 0.3s all linear;&#13;
+  }&#13;
+  .box h3 a{&#13;
+    font-size: 1.9rem;&#13;
+    font-weight: 500;&#13;
+    color: white;&#13;
+    cursor: pointer;&#13;
+  }&#13;
+  .box span {&#13;
+    font-size: 13px;&#13;
+  }&#13;
+  .coming-container {&#13;
+    display: grid;&#13;
+    max-width: 968px;&#13;
+    margin-left: auto;&#13;
+    margin-right: auto;&#13;
+    margin-top: 2rem;&#13;
+  }&#13;
+  .coming-container .box-img img:hover {&#13;
+    transform: translateY(0);&#13;
+    cursor:pointer;&#13;
+  }&#13;
+  .coming-container .box {&#13;
+    width: 100%;&#13;
+    height: 100%;&#13;
+  }</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>integration_series_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Integration Series list</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function () {	
+  try {
+    var r = new sn_ws.RESTMessageV2("x_820501_integrate.ApiTmdb", "SeriesList");
+
+    var response = r.execute();
+    var responseBody = response.getBody();
+    var obj = JSON.parse(responseBody);
+
+    // Verifica se a propriedade 'results' existe
+    if (obj.hasOwnProperty("results")) {
+      // Pega o primeiro item da lista (se houver)
+      data.list = obj.results;
+      //console.log('Client script executed successfully!' + JSON.stringify(data.list));
+    } else {
+      console.error(
+        'A propriedade "results" não foi encontrada no objeto JSON.'
+      );
+    }
+  } catch (ex) {
+    var message = ex.message;
+  }
+
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-08 02:02:46</sys_created_on>
+        <sys_id>118254a42f4f39105250d39df699b611</sys_id>
+        <sys_mod_count>54</sys_mod_count>
+        <sys_name>Integration Series list</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sp_widget_118254a42f4f39105250d39df699b611</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-25 16:22:46</sys_updated_on>
+        <template><![CDATA[
+<!--Series-->
+
+  <section class="movies" id="movies" >
+    <h2 class="heading">More Popular</h2>
+    <!--Series Container-->
+    <div class="movies-container">
+      <!--Box-1-->
+      <div class="box" ng-repeat="infor in c.series">
+        <div class="box-img">
+          <img ng-click="redirectToIntegrationPage(infor.id)" src="https://image.tmdb.org/t/p/original{{infor.poster_path}}" alt />
+        </div>
+        <h3> <a ng-click="redirectToIntegrationPage(infor.id)">{{infor.name}}</a></h3>
+        <span>{{infor.first_air_date}} |
+          <i ng-repeat="star in [].constructor(5) track by $index" class="{{c.getStarClass(infor.vote_average, $index)}}" aria-hidden="true"></i>
+
+        </span>
+      </div>
+    </div>
+  </section>
+
+
+
+
+]]></template>
+    </sp_widget>
+</record_update>
