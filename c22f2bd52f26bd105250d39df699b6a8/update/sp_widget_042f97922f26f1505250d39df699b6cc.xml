@@ -451,28 +451,7 @@ div:focus{
 	
 	
 	
-	 data.records = getRecords();
 
-  function getRecords() {
-      var gr = new GlideRecord('u_course');
-      gr.query();
-  
-      // Array para armazenar cada objeto
-      var results = [];
-  
-      while (gr.next()) {
-          var resultsObj = {};
-          resultsObj.sysId = gr.getUniqueValue();
-          resultsObj.image = gr.getDisplayValue('u_image');
-          resultsObj.name = gr.getDisplayValue('u_name');
-          resultsObj.description = gr.getDisplayValue('u_description')
-  
-          results.push(resultsObj);
-      }
-  
-      return results;
-  }
-	
 
 })();
 ]]></script>
@@ -481,14 +460,14 @@ div:focus{
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-11-19 06:54:41</sys_created_on>
         <sys_id>042f97922f26f1505250d39df699b6cc</sys_id>
-        <sys_mod_count>1458</sys_mod_count>
+        <sys_mod_count>1460</sys_mod_count>
         <sys_name>Integration Page Movies</sys_name>
         <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
         <sys_policy/>
         <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
         <sys_update_name>sp_widget_042f97922f26f1505250d39df699b6cc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-03 05:56:44</sys_updated_on>
+        <sys_updated_on>2024-08-01 14:19:14</sys_updated_on>
         <template><![CDATA[<!-- Recomendados ng-if="c.not"-->
 
 <section

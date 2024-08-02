@@ -114,20 +114,9 @@
         <script><![CDATA[(function() {
 
 	//// integração com Api TMDB novos filmes///////////
-	try { 
-		var newR = new sn_ws.RESTMessageV2('x_820501_integrate.ApiTmdb', 'NowPlay');
-		var newrResponse = newR.execute();
-		var newResponseBody = newrResponse.getBody();
-		var httpStatusNew = newrResponse.getStatusCode();
-		// Parseia o JSON e retorna como objeto
-		var parsedNewResponse = JSON.parse(newResponseBody);
-
-		// Adiciona o objeto à variável 'data'
-		data.movies = parsedNewResponse;
-	}
-	catch(ex) {
-		var messageNew = ex.message;
-	}
+	const newMovies = new x_820501_integrate.integrationVUtils();
+	const resultNewMovies = newMovies.newMovies();
+data.movies = resultNewMovies
 
 })();]]></script>
         <servicenow>false</servicenow>
@@ -135,14 +124,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-11-16 19:07:45</sys_created_on>
         <sys_id>cd2aee692fe2fd105250d39df699b672</sys_id>
-        <sys_mod_count>109</sys_mod_count>
+        <sys_mod_count>111</sys_mod_count>
         <sys_name>integration Section 1</sys_name>
         <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
         <sys_policy/>
         <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
         <sys_update_name>sp_widget_cd2aee692fe2fd105250d39df699b672</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-12-15 16:27:43</sys_updated_on>
+        <sys_updated_on>2024-08-02 06:04:51</sys_updated_on>
         <template><![CDATA[<div>
 
   <!--Movies Container 2-->
