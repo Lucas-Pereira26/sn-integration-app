@@ -3,10 +3,10 @@
         <app_config display_value="Custom Portal App Config">be20eb3847730210c637224f316d43ff</app_config>
         <description/>
         <extension_point/>
-        <fields>searchContextConfigId</fields>
+        <fields>searchTerm</fields>
         <icon/>
         <name>Search Page</name>
-        <optional_parameters>searchTerm</optional_parameters>
+        <optional_parameters/>
         <order>0</order>
         <parent_macroponent display_value="Portal App Shell">b66bf1075b31101016fd7c1bf481c7a7</parent_macroponent>
         <parent_macroponent_composition_element_id/>
@@ -16,14 +16,14 @@
         <sys_created_by>system</sys_created_by>
         <sys_created_on>2024-08-01 14:38:03</sys_created_on>
         <sys_id>43202f380e7302105554b0c9716e326a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Search Page</sys_name>
         <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
         <sys_policy/>
         <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
         <sys_update_name>sys_ux_app_route_43202f380e7302105554b0c9716e326a</sys_update_name>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2024-08-01 14:38:03</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-06 02:55:52</sys_updated_on>
     </sys_ux_app_route>
     <sys_translated_text action="delete_multiple" query="documentkey=43202f380e7302105554b0c9716e326a"/>
 </record_update>

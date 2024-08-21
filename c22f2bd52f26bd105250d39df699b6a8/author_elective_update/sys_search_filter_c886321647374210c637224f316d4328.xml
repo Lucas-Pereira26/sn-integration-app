@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_search_filter">
+    <sys_search_filter action="DELETE">
+        <active>true</active>
+        <ais_search_source display_value="Service Portal Knowledge Bases">eb77cac5772300102d71af6168106160</ais_search_source>
+        <label>Knowledge</label>
+        <name>Service Portal Knowledge Bases</name>
+        <order>100</order>
+        <search_context_config display_value="Search Integration">16e8999a47fb0210c637224f316d43db</search_context_config>
+        <sys_class_name>sys_search_filter</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-06 03:26:50</sys_created_on>
+        <sys_id>c886321647374210c637224f316d4328</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Service Portal Knowledge Bases</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_search_filter_c886321647374210c637224f316d4328</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-06 03:26:50</sys_updated_on>
+    </sys_search_filter>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>1edd3b1c1b82b9946a85eb9b2d4bcb8c</instance_id>
+        <instance_name>dev190277</instance_name>
+        <name>sys_search_filter_c886321647374210c637224f316d4328</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_search_filter"><sys_search_filter action="INSERT_OR_UPDATE"><active>true</active><ais_search_source display_value="Service Portal Knowledge Bases">eb77cac5772300102d71af6168106160</ais_search_source><label>Knowledge</label><name>Service Portal Knowledge Bases</name><order>100</order><search_context_config display_value="Search Integration">16e8999a47fb0210c637224f316d43db</search_context_config><sys_class_name>sys_search_filter</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-08-06 03:26:50</sys_created_on><sys_id>c886321647374210c637224f316d4328</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Service Portal Knowledge Bases</sys_name><sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package><sys_policy/><sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope><sys_update_name>sys_search_filter_c886321647374210c637224f316d4328</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-08-06 03:26:50</sys_updated_on></sys_search_filter></record_update>]]></payload>
+        <payload_hash>-368594551</payload_hash>
+        <record_name>Service Portal Knowledge Bases</record_name>
+        <reverted_from/>
+        <source>be98937c47330210c637224f316d431a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-06 03:26:50</sys_created_on>
+        <sys_id>c486321647374210c637224f316d432b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19125b9a8e10000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-06 03:26:50</sys_updated_on>
+        <type>Navigation Tab</type>
+        <update_guid>8886321644374210a18629f2b50ddf2a</update_guid>
+        <update_guid_history>8886321644374210a18629f2b50ddf2a:-368594551</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-06 03:28:27</sys_created_on>
+        <sys_db_object display_value="" name="sys_search_filter">sys_search_filter</sys_db_object>
+        <sys_id>600d697657064356aae620bc45188971</sys_id>
+        <sys_metadata>c886321647374210c637224f316d4328</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Service Portal Knowledge Bases</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sys_search_filter_c886321647374210c637224f316d4328</sys_update_name>
+        <sys_update_version display_value="sys_search_filter_c886321647374210c637224f316d4328">c486321647374210c637224f316d432b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-06 03:28:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

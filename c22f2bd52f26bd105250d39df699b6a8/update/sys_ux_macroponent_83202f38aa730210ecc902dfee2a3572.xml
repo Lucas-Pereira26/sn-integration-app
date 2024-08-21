@@ -21,52 +21,282 @@
             "composition": [
                 {
                     "definition": {
-                        "id": "78580cbc090d816f232d10e954f6dc74",
+                        "id": "d356d14b6e293a3020a244b63d278d8f",
                         "type": "MACROPONENT"
                     },
-                    "elementId": "search_results_1",
-                    "elementLabel": "Search results 1",
+                    "elementId": "container_20",
+                    "elementLabel": "Container 20",
                     "eventMappings": [],
                     "isHidden": {
                         "type": "JSON_LITERAL",
                         "value": null
                     },
+                    "overrides": {
+                        "composition": [
+                            {
+                                "definition": {
+                                    "id": "d37ce8abca89d02905fed903c8e34d8e",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementId": "button_1",
+                                "elementLabel": "Button 1",
+                                "eventMappings": [],
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "propertyValues": {
+                                    "configAria": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "disabled": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    },
+                                    "icon": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "label": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "comment": "",
+                                            "message": " Movies"
+                                        }
+                                    },
+                                    "landmark": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "size": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "lg"
+                                    },
+                                    "tooltipContent": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "comment": "",
+                                            "message": ""
+                                        }
+                                    },
+                                    "variant": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "primary"
+                                    }
+                                },
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "d37ce8abca89d02905fed903c8e34d8e",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementId": "button_2",
+                                "elementLabel": "Button 2",
+                                "eventMappings": [],
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "propertyValues": {
+                                    "configAria": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "disabled": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    },
+                                    "icon": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "label": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "comment": "",
+                                            "message": "Series"
+                                        }
+                                    },
+                                    "landmark": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "size": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "lg"
+                                    },
+                                    "tooltipContent": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "comment": "",
+                                            "message": ""
+                                        }
+                                    },
+                                    "variant": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "primary"
+                                    }
+                                },
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "d37ce8abca89d02905fed903c8e34d8e",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementId": "button_3",
+                                "elementLabel": "Button 3",
+                                "eventMappings": [],
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "propertyValues": {
+                                    "configAria": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "disabled": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    },
+                                    "icon": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "label": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "comment": "",
+                                            "message": "Contact"
+                                        }
+                                    },
+                                    "landmark": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "size": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "lg"
+                                    },
+                                    "tooltipContent": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "comment": "",
+                                            "message": ""
+                                        }
+                                    },
+                                    "variant": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "primary"
+                                    }
+                                },
+                                "slot": null,
+                                "styles": null
+                            }
+                        ],
+                        "layout": {
+                            "default": {
+                                "children": null,
+                                "items": [
+                                    {
+                                        "element_id": "button_1",
+                                        "styles": {
+                                            "--now-button--primary--background-color": "#ff2c1f",
+                                            "--now-button--primary--color": "white",
+                                            "align-self": "center",
+                                            "background": "#ff2c1f",
+                                            "color": "white"
+                                        }
+                                    },
+                                    {
+                                        "element_id": "button_2",
+                                        "styles": {
+                                            "--now-button--primary--background-color": "#ff2c1f",
+                                            "--now-button--primary--color": "white",
+                                            "align-self": "center",
+                                            "background": "#ff2c1f",
+                                            "color": "white"
+                                        }
+                                    },
+                                    {
+                                        "element_id": "button_3",
+                                        "styles": {
+                                            "--now-button--primary--background-color": "#ff2c1f",
+                                            "--now-button--primary--color": "white",
+                                            "align-self": "center",
+                                            "background": "#ff2c1f",
+                                            "color": "white"
+                                        }
+                                    }
+                                ],
+                                "root": null,
+                                "rules": null,
+                                "styles": {
+                                    "flex-direction": "row",
+                                    "gap": "var(--now-scalable-space--xl)",
+                                    "justify-content": "center",
+                                    "margin": "var(--now-scalable-space--lg)",
+                                    "margin-bottom": "var(--now-scalable-space--lg)",
+                                    "margin-left": "var(--now-scalable-space--lg)",
+                                    "margin-right": "var(--now-scalable-space--lg)",
+                                    "margin-top": "var(--now-scalable-space--lg)"
+                                },
+                                "templateId": "5832fd4d53c31010e6bcddeeff7b12db",
+                                "type": "flex"
+                            },
+                            "version": "3.0.0"
+                        }
+                    },
                     "preset": null,
                     "propertyValues": {
-                        "daClientActionContract": {
+                        "ariaRegionHeadingLevel": {
                             "type": "JSON_LITERAL",
-                            "value": null
+                            "value": "1"
                         },
-                        "geniusResults": {
+                        "ariaRegionName": {
+                            "type": "TRANSLATION_LITERAL",
+                            "value": {
+                                "code": null,
+                                "comment": "",
+                                "message": ""
+                            }
+                        },
+                        "ariaRole": {
                             "type": "JSON_LITERAL",
-                            "value": "[]"
+                            "value": ""
                         },
-                        "isLoading": {
+                        "hideEmptyStateUi": {
+                            "type": "JSON_LITERAL",
+                            "value": true
+                        },
+                        "includeAriaHeading": {
                             "type": "JSON_LITERAL",
                             "value": false
                         },
-                        "searchContextConfigId": {
+                        "slotWrapperBehavior": {
                             "type": "JSON_LITERAL",
-                            "value": null
+                            "value": "fullheight"
                         },
-                        "searchResultMetadata": {
+                        "type": {
                             "type": "JSON_LITERAL",
-                            "value": "{}"
-                        },
-                        "searchResults": {
-                            "type": "JSON_LITERAL",
-                            "value": "[]"
-                        },
-                        "selectedSearchContext": {
-                            "type": "JSON_LITERAL",
-                            "value": "[]"
-                        },
-                        "spellCheckFontSize": {
-                            "type": "JSON_LITERAL",
-                            "value": "xl"
+                            "value": "section"
                         }
                     },
-                    "slot": null,
+                    "slot": "content",
                     "styles": null
                 },
                 {
@@ -2029,7 +2259,7 @@
                     "children": null,
                     "items": [
                         {
-                            "element_id": "search_results_1",
+                            "element_id": "container_20",
                             "styles": {}
                         },
                         {
@@ -2136,76 +2366,6 @@
         <interactions/>
         <interfaces/>
         <internal_event_mappings>{
-    "MACROPONENT_PROPERTY_CHANGED": [
-        {
-            "broker": null,
-            "clientScript": {
-                "sysId": "c3202f38467302106e74a946171cb858"
-            },
-            "conditional": null,
-            "declarativeAction": null,
-            "event": null,
-            "operation": null,
-            "targetId": "ckhdbbldggmaaaaggggddhiibbmfyadbit",
-            "type": "CLIENT_SCRIPT"
-        }
-    ],
-    "x_820501_integrate.MY_REQUEST": [
-        {
-            "broker": null,
-            "clientScript": {
-                "sysId": "07202f38cd730210141c6b42531c7567"
-            },
-            "conditional": null,
-            "declarativeAction": null,
-            "event": null,
-            "operation": null,
-            "targetId": "ckgseejhhhraaaabbjddhhhffggurqgvhdd",
-            "type": "CLIENT_SCRIPT"
-        }
-    ],
-    "x_820501_integrate.MY_TASKS": [
-        {
-            "broker": null,
-            "clientScript": {
-                "sysId": "cf202f389873021034233c9cde756d4f"
-            },
-            "conditional": null,
-            "declarativeAction": null,
-            "event": null,
-            "operation": null,
-            "targetId": "ckgujjcchuaaaaaabbjjddghhiimqhhllddvjj",
-            "type": "CLIENT_SCRIPT"
-        }
-    ],
-    "x_820501_integrate.MY_TASKS_APPROVE": [
-        {
-            "broker": null,
-            "clientScript": {
-                "sysId": "cf202f3815730210bc27b16b5b1d2965"
-            },
-            "conditional": null,
-            "declarativeAction": null,
-            "event": null,
-            "operation": null,
-            "targetId": "ckgsctjjjjsaaaabbpddhhhhhxrjjrohhqn",
-            "type": "CLIENT_SCRIPT"
-        }
-    ],
-    "x_820501_integrate.MY_TASKS_REJECT": [
-        {
-            "broker": null,
-            "clientScript": {
-                "sysId": "cf202f3815730210bc27b16b5b1d2965"
-            },
-            "conditional": null,
-            "declarativeAction": null,
-            "event": null,
-            "operation": null,
-            "targetId": "ckgscsfjzaaaabbnddhhhhhaiibwjltr",
-            "type": "CLIENT_SCRIPT"
-        }
-    ],
     "x_820501_integrate.POPULAR_ARTICLES": [
         {
             "broker": null,
@@ -2317,6 +2477,12 @@
     }
 ]</props>
         <required_translations>[ {
+  "message" : " Movies",
+  "comment" : ""
+}, {
+  "message" : "Contact",
+  "comment" : ""
+}, {
   "message" : "Get the help you need",
   "comment" : ""
 }, {
@@ -2333,6 +2499,9 @@
   "comment" : ""
 }, {
   "message" : "Search",
+  "comment" : ""
+}, {
+  "message" : "Series",
   "comment" : ""
 }, {
   "message" : "Title",
@@ -2461,14 +2630,14 @@
         <sys_created_by>system</sys_created_by>
         <sys_created_on>2024-08-01 14:38:02</sys_created_on>
         <sys_id>83202f38aa730210ecc902dfee2a3572</sys_id>
-        <sys_mod_count>47</sys_mod_count>
+        <sys_mod_count>52</sys_mod_count>
         <sys_name>Landing Page</sys_name>
         <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
         <sys_policy/>
         <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
         <sys_update_name>sys_ux_macroponent_83202f38aa730210ecc902dfee2a3572</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-08-02 07:13:46</sys_updated_on>
+        <sys_updated_on>2024-08-06 03:45:20</sys_updated_on>
     </sys_ux_macroponent>
     <sys_translated_text action="delete_multiple" query="documentkey=83202f38aa730210ecc902dfee2a3572"/>
 </record_update>

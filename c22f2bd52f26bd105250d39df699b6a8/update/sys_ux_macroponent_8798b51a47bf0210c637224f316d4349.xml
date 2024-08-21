@@ -26,7 +26,51 @@
                     },
                     "elementId": "button_1",
                     "elementLabel": "Button 1",
-                    "eventMappings": [],
+                    "eventMappings": [
+                        {
+                            "eventMappingId": "clzhvcmjmaaccvgddffiiddpdgndddzi",
+                            "isConfiguration": false,
+                            "offRowStorageId": null,
+                            "sourceEventApiName": "sn_button.NOW_BUTTON#CLICKED",
+                            "sourceEventCorrelationId": null,
+                            "sourceEventDefinition": {
+                                "apiName": "sn_button.NOW_BUTTON#CLICKED",
+                                "id": null,
+                                "type": "UXEVENT"
+                            },
+                            "sourceEventSysId": null,
+                            "targets": [
+                                {
+                                    "broker": null,
+                                    "clientScript": null,
+                                    "conditional": null,
+                                    "declarativeAction": null,
+                                    "event": {
+                                        "apiName": "x_820501_integrate.NAV_ITEM_SELECTED_RELAY_8798b51a47bf0210c637224f316d4349",
+                                        "payload": {
+                                            "type": "JSON_LITERAL",
+                                            "value": {
+                                                "external": null,
+                                                "fields": null,
+                                                "multiInstField": null,
+                                                "navigationOptions": null,
+                                                "params": null,
+                                                "passiveNavigation": null,
+                                                "redirect": null,
+                                                "route": "landing",
+                                                "targetRoute": null,
+                                                "title": null
+                                            }
+                                        },
+                                        "sysId": "dcc8ba5647374210c637224f316d43c3"
+                                    },
+                                    "operation": null,
+                                    "targetId": "clzhvcmjnaaccvhddffiidddxhhhhhrfcc",
+                                    "type": "EVENT"
+                                }
+                            ]
+                        }
+                    ],
                     "isHidden": {
                         "type": "JSON_LITERAL",
                         "value": null
@@ -59,7 +103,7 @@
                         },
                         "size": {
                             "type": "JSON_LITERAL",
-                            "value": "lg"
+                            "value": "md"
                         },
                         "tooltipContent": {
                             "type": "TRANSLATION_LITERAL",
@@ -117,7 +161,7 @@
                         },
                         "size": {
                             "type": "JSON_LITERAL",
-                            "value": "lg"
+                            "value": "md"
                         },
                         "tooltipContent": {
                             "type": "TRANSLATION_LITERAL",
@@ -175,7 +219,7 @@
                         },
                         "size": {
                             "type": "JSON_LITERAL",
-                            "value": "lg"
+                            "value": "md"
                         },
                         "tooltipContent": {
                             "type": "TRANSLATION_LITERAL",
@@ -300,7 +344,57 @@
                     },
                     "elementId": "search_input_1",
                     "elementLabel": "Search input 1",
-                    "eventMappings": [],
+                    "eventMappings": [
+                        {
+                            "eventMappingId": "clzhtdddckaaccaaccddffiiddaaehhddcccqa",
+                            "isConfiguration": false,
+                            "offRowStorageId": null,
+                            "sourceEventApiName": "sn_search_combobox.SN_SEARCH_COMBOBOX#SEARCH_EXECUTED",
+                            "sourceEventCorrelationId": null,
+                            "sourceEventDefinition": {
+                                "apiName": "sn_search_combobox.SN_SEARCH_COMBOBOX#SEARCH_EXECUTED",
+                                "id": null,
+                                "type": "UXEVENT"
+                            },
+                            "sourceEventSysId": null,
+                            "targets": [
+                                {
+                                    "broker": null,
+                                    "clientScript": null,
+                                    "conditional": null,
+                                    "declarativeAction": null,
+                                    "event": null,
+                                    "operation": {
+                                        "dataBrokerId": "e02df012477b0210c637224f316d43e6",
+                                        "operationName": "REFRESH",
+                                        "parentResourceId": "integration_search_movies_1",
+                                        "payload": {
+                                            "type": "JSON_LITERAL",
+                                            "value": {}
+                                        }
+                                    },
+                                    "targetId": "clzhtdddckaaccaaddddffiiddvddpmeeeaaq",
+                                    "type": "DATABROKER_OP"
+                                },
+                                {
+                                    "broker": null,
+                                    "clientScript": {
+                                        "payload": {
+                                            "type": "JSON_LITERAL",
+                                            "value": {}
+                                        },
+                                        "sysId": "32c0825e47bf0210c637224f316d4368"
+                                    },
+                                    "conditional": null,
+                                    "declarativeAction": null,
+                                    "event": null,
+                                    "operation": null,
+                                    "targetId": "clzhtcvffnaaccbbqddffiiddfeeegddrmv",
+                                    "type": "CLIENT_SCRIPT"
+                                }
+                            ]
+                        }
+                    ],
                     "isHidden": {
                         "type": "JSON_LITERAL",
                         "value": null
@@ -325,11 +419,15 @@
                         },
                         "searchContextConfigId": {
                             "type": "JSON_LITERAL",
-                            "value": ""
+                            "value": null
                         },
                         "searchTerm": {
-                            "type": "JSON_LITERAL",
-                            "value": ""
+                            "binding": {
+                                "address": [
+                                    "propsName"
+                                ]
+                            },
+                            "type": "STATE_BINDING"
                         },
                         "size": {
                             "type": "JSON_LITERAL",
@@ -1116,7 +1214,8 @@
                     "root": null,
                     "rules": null,
                     "styles": {
-                        "flex-direction": "row"
+                        "flex-direction": "row",
+                        "margin-bottom": "var(--now-scalable-space--xxl)"
                     },
                     "templateId": "5832fd4d53c31010e6bcddeeff7b12db",
                     "type": "flex"
@@ -1177,11 +1276,10 @@
             "searchmovies": {
                 "binding": {
                     "address": [
-                        "termo"
-                    ],
-                    "category": "props"
+                        "propsName"
+                    ]
                 },
-                "type": "CONTEXT_BINDING"
+                "type": "STATE_BINDING"
             }
         },
         "readEvaluationMode": "EAGER"
@@ -1189,7 +1287,7 @@
 ]</data>
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
-        <dispatched_events/>
+        <dispatched_events>dcc8ba5647374210c637224f316d43c3</dispatched_events>
         <ext_controller_dep/>
         <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
         <extension_point/>
@@ -1235,7 +1333,7 @@
     "version": "3.0.0"
 }</layout>
         <macroponent_dependencies/>
-        <name>Default search integration</name>
+        <name>Search Page Integration</name>
         <output_prop_mapping/>
         <props>[
     {
@@ -1259,6 +1357,19 @@
         "label": "searchTermo",
         "mandatory": false,
         "name": "searchTermo",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    },
+    {
+        "description": "",
+        "fieldType": "string",
+        "id": "clzhmmccaqaabbybbddffiiddgepcuiiagg",
+        "inherited": false,
+        "label": "searchTerm",
+        "mandatory": false,
+        "name": "searchTerm",
         "readOnly": false,
         "selectable": false,
         "typeMetadata": null,
@@ -1289,24 +1400,32 @@
         <state_properties>[
     {
         "id": "",
-        "initialValue": null,
-        "name": "newClientStateParam1",
+        "initialValue": {
+            "binding": {
+                "address": [
+                    "searchTerm"
+                ],
+                "category": "props"
+            },
+            "type": "CONTEXT_BINDING"
+        },
+        "name": "propsName",
         "shape": "",
         "valueType": "string"
     }
 ]</state_properties>
         <sys_class_name>sys_ux_macroponent</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2024-08-02 07:18:16</sys_created_on>
-        <sys_id>5715c7c147338210c637224f316d432e</sys_id>
-        <sys_mod_count>32</sys_mod_count>
-        <sys_name>Default search integration</sys_name>
+        <sys_created_on>2024-08-05 22:56:25</sys_created_on>
+        <sys_id>8798b51a47bf0210c637224f316d4349</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Search Page Integration</sys_name>
         <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
         <sys_policy/>
         <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
-        <sys_update_name>sys_ux_macroponent_5715c7c147338210c637224f316d432e</sys_update_name>
+        <sys_update_name>sys_ux_macroponent_8798b51a47bf0210c637224f316d4349</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-08-05 22:55:50</sys_updated_on>
+        <sys_updated_on>2024-08-06 03:37:02</sys_updated_on>
     </sys_ux_macroponent>
-    <sys_translated_text action="delete_multiple" query="documentkey=5715c7c147338210c637224f316d432e"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=8798b51a47bf0210c637224f316d4349"/>
 </record_update>

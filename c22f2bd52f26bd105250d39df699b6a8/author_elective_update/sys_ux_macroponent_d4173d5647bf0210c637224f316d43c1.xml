@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="DELETE">
+        <associated_types/>
+        <bundles/>
+        <category>page</category>
+        <component_dependencies/>
+        <composition/>
+        <da_relay_models/>
+        <data/>
+        <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <dispatched_events/>
+        <ext_controller_dep/>
+        <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <extension_point/>
+        <form_factors>{}</form_factors>
+        <handled_events/>
+        <interactions/>
+        <interfaces/>
+        <internal_event_mappings/>
+        <layout/>
+        <macroponent_dependencies/>
+        <name>Search</name>
+        <output_prop_mapping/>
+        <props>[
+    {
+        "defaultValue": "",
+        "description": null,
+        "disabled": false,
+        "fieldType": "string",
+        "label": "termo",
+        "mandatory": false,
+        "name": "termo",
+        "readOnly": true,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    }
+]</props>
+        <required_translations>[ ]</required_translations>
+        <root_component/>
+        <root_component_config/>
+        <root_component_definition/>
+        <schema_version>1.0.0</schema_version>
+        <state_persistence_config/>
+        <state_properties/>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-05 22:49:41</sys_created_on>
+        <sys_id>d4173d5647bf0210c637224f316d43c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_ux_macroponent_d4173d5647bf0210c637224f316d43c1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-05 22:49:41</sys_updated_on>
+    </sys_ux_macroponent>
+    <sys_translated_text action="DELETE" query="documentkey=d4173d5647bf0210c637224f316d43c1"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>1edd3b1c1b82b9946a85eb9b2d4bcb8c</instance_id>
+        <instance_name>dev190277</instance_name>
+        <name>sys_ux_macroponent_d4173d5647bf0210c637224f316d43c1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent"><sys_ux_macroponent action="INSERT_OR_UPDATE"><associated_types/><bundles/><category>page</category><component_dependencies/><composition/><da_relay_models/><data/><description/><disable_auto_reflow>false</disable_auto_reflow><dispatched_events/><ext_controller_dep/><extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends><extension_point/><form_factors>{}</form_factors><handled_events/><interactions/><interfaces/><internal_event_mappings/><layout/><macroponent_dependencies/><name>Search</name><output_prop_mapping/><props>[
+    {
+        "defaultValue": "",
+        "description": null,
+        "disabled": false,
+        "fieldType": "string",
+        "label": "termo",
+        "mandatory": false,
+        "name": "termo",
+        "readOnly": true,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    }
+]</props><required_translations>[ ]</required_translations><root_component/><root_component_config/><root_component_definition/><schema_version>1.0.0</schema_version><state_persistence_config/><state_properties/><sys_class_name>sys_ux_macroponent</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-08-05 22:49:41</sys_created_on><sys_id>d4173d5647bf0210c637224f316d43c1</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Search</sys_name><sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package><sys_policy/><sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope><sys_update_name>sys_ux_macroponent_d4173d5647bf0210c637224f316d43c1</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-08-05 22:49:41</sys_updated_on></sys_ux_macroponent><sys_translated_text action="delete_multiple" query="documentkey=d4173d5647bf0210c637224f316d43c1"/></record_update>]]></payload>
+        <payload_hash>91077579</payload_hash>
+        <record_name>Search</record_name>
+        <reverted_from/>
+        <source>be98937c47330210c637224f316d431a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-05 22:49:41</sys_created_on>
+        <sys_id>10173d5647bf0210c637224f316d43c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19124bbeca30000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-05 22:49:41</sys_updated_on>
+        <type>UX Macroponent Definition</type>
+        <update_guid>d0173d560cbf021016c68992b1a50ac3</update_guid>
+        <update_guid_history>d0173d560cbf021016c68992b1a50ac3:91077579</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-05 22:50:33</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_macroponent">sys_ux_macroponent</sys_db_object>
+        <sys_id>b84541969aa4444ab2be948ad3473b91</sys_id>
+        <sys_metadata>d4173d5647bf0210c637224f316d43c1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sys_ux_macroponent_d4173d5647bf0210c637224f316d43c1</sys_update_name>
+        <sys_update_version display_value="sys_ux_macroponent_d4173d5647bf0210c637224f316d43c1">10173d5647bf0210c637224f316d43c4</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-05 22:50:33</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

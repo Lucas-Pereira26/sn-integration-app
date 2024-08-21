@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_screen">
+    <sys_ux_screen action="DELETE">
+        <active>true</active>
+        <app_config display_value="Custom Portal App Config">be20eb3847730210c637224f316d43ff</app_config>
+        <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <event_mappings>[
+    {
+        "eventMappingId": "clqwlnqnqaabbccnddbhhpeegkvsgbbz",
+        "isConfiguration": false,
+        "offRowStorageId": null,
+        "sourceEventApiName": "x_820501_integrate.NAV_ITEM_SELECTED_RELAY_47202f380273021067d4afa4155ec466",
+        "sourceEventCorrelationId": null,
+        "sourceEventDefinition": {
+            "apiName": "x_820501_integrate.NAV_ITEM_SELECTED_RELAY_47202f380273021067d4afa4155ec466",
+            "id": null,
+            "type": "UXEVENT"
+        },
+        "sourceEventSysId": null,
+        "targets": [
+            {
+                "broker": null,
+                "clientScript": null,
+                "clientTransformScript": null,
+                "clientTransformScriptUxValue": null,
+                "conditional": null,
+                "declarativeAction": null,
+                "event": {
+                    "apiName": "sn_canvas_core.NAV_ITEM_SELECTED",
+                    "payload": {
+                        "container": {
+                            "external": {
+                                "binding": {
+                                    "address": [
+                                        "external"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "fields": {
+                                "binding": {
+                                    "address": [
+                                        "fields"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "multiInstField": {
+                                "binding": {
+                                    "address": [
+                                        "multiInstField"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "navigationOptions": {
+                                "binding": {
+                                    "address": [
+                                        "navigationOptions"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "params": {
+                                "binding": {
+                                    "address": [
+                                        "params"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "passiveNavigation": {
+                                "binding": {
+                                    "address": [
+                                        "passiveNavigation"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "redirect": {
+                                "binding": {
+                                    "address": [
+                                        "redirect"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "route": {
+                                "binding": {
+                                    "address": [
+                                        "route"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "targetRoute": {
+                                "binding": {
+                                    "address": [
+                                        "targetRoute"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "title": {
+                                "binding": {
+                                    "address": [
+                                        "title"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            }
+                        },
+                        "type": "MAP_CONTAINER"
+                    },
+                    "sysId": "8b82bf18e5276c8e423b6e4e0889b463"
+                },
+                "operation": null,
+                "targetId": "clqwlnqnpaabbccmddbhhprabuhmree",
+                "type": "EVENT"
+            }
+        ]
+    }
+]</event_mappings>
+        <macroponent display_value="Search Page">74d6711647bf0210c637224f316d4317</macroponent>
+        <macroponent_config>{
+    "bare": {
+        "type": "JSON_LITERAL",
+        "value": true
+    },
+    "headerLevel": {
+        "type": "JSON_LITERAL",
+        "value": "1"
+    },
+    "headingOnlyVisibleToScreenReaders": {
+        "type": "JSON_LITERAL",
+        "value": false
+    },
+    "interceptNotifications": {
+        "type": "JSON_LITERAL",
+        "value": false
+    },
+    "label": {
+        "type": "TRANSLATION_LITERAL",
+        "value": {
+            "code": null,
+            "comment": "",
+            "message": ""
+        }
+    },
+    "propagateNotifications": {
+        "type": "JSON_LITERAL",
+        "value": false
+    },
+    "scrollable": {
+        "type": "JSON_LITERAL",
+        "value": "none"
+    },
+    "searchContextConfigId": {
+        "type": "JSON_LITERAL",
+        "value": ""
+    },
+    "searchTerm": {
+        "type": "JSON_LITERAL",
+        "value": ""
+    }
+}</macroponent_config>
+        <name>Search</name>
+        <order>0</order>
+        <parent_macroponent display_value="Portal App Shell">b66bf1075b31101016fd7c1bf481c7a7</parent_macroponent>
+        <required_translations>[ ]</required_translations>
+        <rollback_screen/>
+        <screen_condition/>
+        <screen_type display_value="Search Page">83202f38257302102882394814207269</screen_type>
+        <sys_class_name>sys_ux_screen</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-05 22:48:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b8d6b95647bf0210c637224f316d430b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_ux_screen_b8d6b95647bf0210c637224f316d430b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-05 22:48:37</sys_updated_on>
+    </sys_ux_screen>
+    <sys_translated_text action="DELETE" query="documentkey=b8d6b95647bf0210c637224f316d430b"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>1edd3b1c1b82b9946a85eb9b2d4bcb8c</instance_id>
+        <instance_name>dev190277</instance_name>
+        <name>sys_ux_screen_b8d6b95647bf0210c637224f316d430b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_screen"><sys_ux_screen action="INSERT_OR_UPDATE"><active>true</active><app_config display_value="Custom Portal App Config">be20eb3847730210c637224f316d43ff</app_config><description/><disable_auto_reflow>false</disable_auto_reflow><event_mappings>[
+    {
+        "eventMappingId": "clqwlnqnqaabbccnddbhhpeegkvsgbbz",
+        "isConfiguration": false,
+        "offRowStorageId": null,
+        "sourceEventApiName": "x_820501_integrate.NAV_ITEM_SELECTED_RELAY_47202f380273021067d4afa4155ec466",
+        "sourceEventCorrelationId": null,
+        "sourceEventDefinition": {
+            "apiName": "x_820501_integrate.NAV_ITEM_SELECTED_RELAY_47202f380273021067d4afa4155ec466",
+            "id": null,
+            "type": "UXEVENT"
+        },
+        "sourceEventSysId": null,
+        "targets": [
+            {
+                "broker": null,
+                "clientScript": null,
+                "clientTransformScript": null,
+                "clientTransformScriptUxValue": null,
+                "conditional": null,
+                "declarativeAction": null,
+                "event": {
+                    "apiName": "sn_canvas_core.NAV_ITEM_SELECTED",
+                    "payload": {
+                        "container": {
+                            "external": {
+                                "binding": {
+                                    "address": [
+                                        "external"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "fields": {
+                                "binding": {
+                                    "address": [
+                                        "fields"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "multiInstField": {
+                                "binding": {
+                                    "address": [
+                                        "multiInstField"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "navigationOptions": {
+                                "binding": {
+                                    "address": [
+                                        "navigationOptions"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "params": {
+                                "binding": {
+                                    "address": [
+                                        "params"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "passiveNavigation": {
+                                "binding": {
+                                    "address": [
+                                        "passiveNavigation"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "redirect": {
+                                "binding": {
+                                    "address": [
+                                        "redirect"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "route": {
+                                "binding": {
+                                    "address": [
+                                        "route"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "targetRoute": {
+                                "binding": {
+                                    "address": [
+                                        "targetRoute"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "title": {
+                                "binding": {
+                                    "address": [
+                                        "title"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            }
+                        },
+                        "type": "MAP_CONTAINER"
+                    },
+                    "sysId": "8b82bf18e5276c8e423b6e4e0889b463"
+                },
+                "operation": null,
+                "targetId": "clqwlnqnpaabbccmddbhhprabuhmree",
+                "type": "EVENT"
+            }
+        ]
+    }
+]</event_mappings><macroponent display_value="Search Page">74d6711647bf0210c637224f316d4317</macroponent><macroponent_config>{
+    "bare": {
+        "type": "JSON_LITERAL",
+        "value": true
+    },
+    "headerLevel": {
+        "type": "JSON_LITERAL",
+        "value": "1"
+    },
+    "headingOnlyVisibleToScreenReaders": {
+        "type": "JSON_LITERAL",
+        "value": false
+    },
+    "interceptNotifications": {
+        "type": "JSON_LITERAL",
+        "value": false
+    },
+    "label": {
+        "type": "TRANSLATION_LITERAL",
+        "value": {
+            "code": null,
+            "comment": "",
+            "message": ""
+        }
+    },
+    "propagateNotifications": {
+        "type": "JSON_LITERAL",
+        "value": false
+    },
+    "scrollable": {
+        "type": "JSON_LITERAL",
+        "value": "none"
+    },
+    "searchContextConfigId": {
+        "type": "JSON_LITERAL",
+        "value": ""
+    },
+    "searchTerm": {
+        "type": "JSON_LITERAL",
+        "value": ""
+    }
+}</macroponent_config><name>Search</name><order>0</order><parent_macroponent display_value="Portal App Shell">b66bf1075b31101016fd7c1bf481c7a7</parent_macroponent><required_translations>[ ]</required_translations><rollback_screen/><screen_condition/><screen_type display_value="Search Page">83202f38257302102882394814207269</screen_type><sys_class_name>sys_ux_screen</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-08-05 22:48:37</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>b8d6b95647bf0210c637224f316d430b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Search</sys_name><sys_overrides/><sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package><sys_policy/><sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope><sys_update_name>sys_ux_screen_b8d6b95647bf0210c637224f316d430b</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-08-05 22:48:37</sys_updated_on></sys_ux_screen><sys_translated_text action="delete_multiple" query="documentkey=b8d6b95647bf0210c637224f316d430b"/></record_update>]]></payload>
+        <payload_hash>1819645348</payload_hash>
+        <record_name>Search</record_name>
+        <reverted_from/>
+        <source>be98937c47330210c637224f316d431a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-05 22:48:38</sys_created_on>
+        <sys_id>45d6b95647bf0210c637224f316d4310</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19124baf6360000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-05 22:48:38</sys_updated_on>
+        <type>UX Screen</type>
+        <update_guid>09d6b95682bf02107a8dbf42a9aa9f0f</update_guid>
+        <update_guid_history>09d6b95682bf02107a8dbf42a9aa9f0f:1819645348</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-05 22:48:59</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_screen">sys_ux_screen</sys_db_object>
+        <sys_id>022a391ab0584e90806ae6b267d9ea24</sys_id>
+        <sys_metadata>b8d6b95647bf0210c637224f316d430b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sys_ux_screen_b8d6b95647bf0210c637224f316d430b</sys_update_name>
+        <sys_update_version display_value="sys_ux_screen_b8d6b95647bf0210c637224f316d430b">45d6b95647bf0210c637224f316d4310</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-05 22:48:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

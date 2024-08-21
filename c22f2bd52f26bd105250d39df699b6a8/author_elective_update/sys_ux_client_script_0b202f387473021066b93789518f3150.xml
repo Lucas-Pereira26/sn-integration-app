@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="DELETE">
+        <controller_preset/>
+        <includes/>
+        <macroponent display_value="Search Page">47202f380273021067d4afa4155ec466</macroponent>
+        <name>Search result clicked</name>
+        <preset/>
+        <required_translations>[ ]</required_translations>
+        <script><![CDATA[function handler({
+    api,
+    event,
+    imports
+}) {
+    const ACTION_NAME = event.payload.action.actionDispatch;
+    var route = 'landing';
+    if (ACTION_NAME == 'NAVIGATION_CATALOG_KB_ARTICLE' || ACTION_NAME == 'GENIUS_NAVIGATION_CATALOG_KB_ARTICLE') {
+        route = "article";
+        const fields = {
+            "sysId": event.payload.action.actionPayload.sysId
+        };
+        api.emit('NAV_ITEM_SELECTED', {
+            route,
+            fields
+        });
+    } else if (ACTION_NAME == 'NAVIGATION' && event.payload.action.actionPayload.url !== "") {
+        api.emit('NAV_ITEM_SELECTED', {
+            external: {
+                "url": event.payload.action.actionPayload.url
+            }
+        });
+    } else if (ACTION_NAME == 'NAVIGATION') {
+        var table = event.payload.action.actionPayload.table;
+        if (table == "kb_knowledge") {
+            route = "article";
+        } else if (table == "sc_cat_item" && event.payload.action.actionPayload.url == "") {
+            route = "catalog";
+        }
+        const fields = {
+            "sysId": event.payload.action.actionPayload.sysId
+        };
+        api.emit('NAV_ITEM_SELECTED', {
+            route,
+            fields
+        });
+    } else if (ACTION_NAME == 'GENIUS_NAVIGATION_CATALOG_EXTERNAL') {
+        api.emit('NAV_ITEM_SELECTED', {
+            external: {
+                "url": event.payload.action.actionPayload.url
+            }
+        });
+    } else return;
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2024-08-01 14:38:03</sys_created_on>
+        <sys_id>0b202f387473021066b93789518f3150</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search result clicked</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_update_name>sys_ux_client_script_0b202f387473021066b93789518f3150</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2024-08-01 14:38:03</sys_updated_on>
+        <target/>
+        <type/>
+    </sys_ux_client_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</application>
+        <file_path/>
+        <instance_id>1edd3b1c1b82b9946a85eb9b2d4bcb8c</instance_id>
+        <instance_name>dev190277</instance_name>
+        <name>sys_ux_client_script_0b202f387473021066b93789518f3150</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ux_client_script"&gt;&lt;sys_ux_client_script action="INSERT_OR_UPDATE"&gt;&lt;controller_preset/&gt;&lt;includes/&gt;&lt;macroponent display_value="Search Page"&gt;47202f380273021067d4afa4155ec466&lt;/macroponent&gt;&lt;name&gt;Search result clicked&lt;/name&gt;&lt;preset/&gt;&lt;required_translations&gt;[ ]&lt;/required_translations&gt;&lt;script&gt;&lt;![CDATA[function handler({
+    api,
+    event,
+    imports
+}) {
+    const ACTION_NAME = event.payload.action.actionDispatch;
+    var route = 'landing';
+    if (ACTION_NAME == 'NAVIGATION_CATALOG_KB_ARTICLE' || ACTION_NAME == 'GENIUS_NAVIGATION_CATALOG_KB_ARTICLE') {
+        route = "article";
+        const fields = {
+            "sysId": event.payload.action.actionPayload.sysId
+        };
+        api.emit('NAV_ITEM_SELECTED', {
+            route,
+            fields
+        });
+    } else if (ACTION_NAME == 'NAVIGATION' &amp;&amp; event.payload.action.actionPayload.url !== "") {
+        api.emit('NAV_ITEM_SELECTED', {
+            external: {
+                "url": event.payload.action.actionPayload.url
+            }
+        });
+    } else if (ACTION_NAME == 'NAVIGATION') {
+        var table = event.payload.action.actionPayload.table;
+        if (table == "kb_knowledge") {
+            route = "article";
+        } else if (table == "sc_cat_item" &amp;&amp; event.payload.action.actionPayload.url == "") {
+            route = "catalog";
+        }
+        const fields = {
+            "sysId": event.payload.action.actionPayload.sysId
+        };
+        api.emit('NAV_ITEM_SELECTED', {
+            route,
+            fields
+        });
+    } else if (ACTION_NAME == 'GENIUS_NAVIGATION_CATALOG_EXTERNAL') {
+        api.emit('NAV_ITEM_SELECTED', {
+            external: {
+                "url": event.payload.action.actionPayload.url
+            }
+        });
+    } else return;
+}]]&gt;&lt;/script&gt;&lt;script_api_version&gt;2.0.0&lt;/script_api_version&gt;&lt;sys_class_name&gt;sys_ux_client_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;system&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-08-01 14:38:03&lt;/sys_created_on&gt;&lt;sys_id&gt;0b202f387473021066b93789518f3150&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Search result clicked&lt;/sys_name&gt;&lt;sys_package display_value="Integrations" source="x_820501_integrate"&gt;c22f2bd52f26bd105250d39df699b6a8&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Integrations"&gt;c22f2bd52f26bd105250d39df699b6a8&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ux_client_script_0b202f387473021066b93789518f3150&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;system&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-08-01 14:38:03&lt;/sys_updated_on&gt;&lt;target/&gt;&lt;type/&gt;&lt;/sys_ux_client_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>229627542</payload_hash>
+        <record_name>Search result clicked</record_name>
+        <reverted_from/>
+        <source>1b4ea40147330210c637224f316d43e9</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by/>
+        <sys_created_on>2024-08-01 20:19:22</sys_created_on>
+        <sys_id>45c1ddde47bb0210c637224f316d43b4</sys_id>
+        <sys_mod_count/>
+        <sys_recorded_at>1910f98dd100000000</sys_recorded_at>
+        <sys_updated_by/>
+        <sys_updated_on/>
+        <type>UX Client Script</type>
+        <update_guid>05c1ddde97bb0210937a3a22814f77b4</update_guid>
+        <update_guid_history>05c1ddde97bb0210937a3a22814f77b4:229627542</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2024-08-05 20:06:42</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_client_script">sys_ux_client_script</sys_db_object>
+        <sys_id>0163397696ea4a7388847521d9aa0881</sys_id>
+        <sys_metadata>0b202f387473021066b93789518f3150</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search result clicked</sys_name>
+        <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
+        <sys_scope_delete display_value="">09bf0a1f0f204be080e7f6e51732e240</sys_scope_delete>
+        <sys_update_name>sys_ux_client_script_0b202f387473021066b93789518f3150</sys_update_name>
+        <sys_update_version display_value="sys_ux_client_script_0b202f387473021066b93789518f3150">45c1ddde47bb0210c637224f316d43b4</sys_update_version>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2024-08-05 20:06:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

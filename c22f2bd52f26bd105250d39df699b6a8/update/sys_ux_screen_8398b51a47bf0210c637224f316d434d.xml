@@ -119,9 +119,124 @@
                 "type": "EVENT"
             }
         ]
+    },
+    {
+        "eventMappingId": "clzhvcutaaaccvsddffiiddkaeeqavmj",
+        "isConfiguration": false,
+        "offRowStorageId": null,
+        "sourceEventApiName": "x_820501_integrate.NAV_ITEM_SELECTED_RELAY_8798b51a47bf0210c637224f316d4349",
+        "sourceEventCorrelationId": null,
+        "sourceEventDefinition": {
+            "apiName": "x_820501_integrate.NAV_ITEM_SELECTED_RELAY_8798b51a47bf0210c637224f316d4349",
+            "id": null,
+            "type": "UXEVENT"
+        },
+        "sourceEventSysId": null,
+        "targets": [
+            {
+                "broker": null,
+                "clientScript": null,
+                "clientTransformScript": null,
+                "clientTransformScriptUxValue": null,
+                "conditional": null,
+                "declarativeAction": null,
+                "event": {
+                    "apiName": "sn_canvas_core.NAV_ITEM_SELECTED",
+                    "payload": {
+                        "container": {
+                            "external": {
+                                "binding": {
+                                    "address": [
+                                        "external"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "fields": {
+                                "binding": {
+                                    "address": [
+                                        "fields"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "multiInstField": {
+                                "binding": {
+                                    "address": [
+                                        "multiInstField"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "navigationOptions": {
+                                "binding": {
+                                    "address": [
+                                        "navigationOptions"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "params": {
+                                "binding": {
+                                    "address": [
+                                        "params"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "passiveNavigation": {
+                                "binding": {
+                                    "address": [
+                                        "passiveNavigation"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "redirect": {
+                                "binding": {
+                                    "address": [
+                                        "redirect"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "route": {
+                                "binding": {
+                                    "address": [
+                                        "route"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "targetRoute": {
+                                "binding": {
+                                    "address": [
+                                        "targetRoute"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            },
+                            "title": {
+                                "binding": {
+                                    "address": [
+                                        "title"
+                                    ]
+                                },
+                                "type": "EVENT_PAYLOAD_BINDING"
+                            }
+                        },
+                        "type": "MAP_CONTAINER"
+                    },
+                    "sysId": "8b82bf18e5276c8e423b6e4e0889b463"
+                },
+                "operation": null,
+                "targetId": "clzhvcutaaaccvrddffiiddggqjzftddn",
+                "type": "EVENT"
+            }
+        ]
     }
 ]</event_mappings>
-        <macroponent display_value="Search Page">47202f380273021067d4afa4155ec466</macroponent>
+        <macroponent display_value="Search Page Integration">8798b51a47bf0210c637224f316d4349</macroponent>
         <macroponent_config>{
     "bare": {
         "type": "JSON_LITERAL",
@@ -164,28 +279,28 @@
         "value": ""
     }
 }</macroponent_config>
-        <name>Search Page Default</name>
-        <order>100</order>
+        <name>Search Page Integration</name>
+        <order>0</order>
         <parent_macroponent display_value="Portal App Shell">b66bf1075b31101016fd7c1bf481c7a7</parent_macroponent>
         <required_translations>[ ]</required_translations>
         <rollback_screen/>
         <screen_condition/>
         <screen_type display_value="Search Page">83202f38257302102882394814207269</screen_type>
         <sys_class_name>sys_ux_screen</sys_class_name>
-        <sys_created_by>system</sys_created_by>
-        <sys_created_on>2024-08-01 14:38:02</sys_created_on>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-05 22:56:25</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>07202f386e7302109f05865083b3da1f</sys_id>
+        <sys_id>8398b51a47bf0210c637224f316d434d</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name>Search Page Default</sys_name>
+        <sys_name>Search Page Integration</sys_name>
         <sys_overrides/>
         <sys_package display_value="Integrations" source="x_820501_integrate">c22f2bd52f26bd105250d39df699b6a8</sys_package>
         <sys_policy/>
         <sys_scope display_value="Integrations">c22f2bd52f26bd105250d39df699b6a8</sys_scope>
-        <sys_update_name>sys_ux_screen_07202f386e7302109f05865083b3da1f</sys_update_name>
+        <sys_update_name>sys_ux_screen_8398b51a47bf0210c637224f316d434d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-08-05 22:58:02</sys_updated_on>
+        <sys_updated_on>2024-08-06 03:37:02</sys_updated_on>
     </sys_ux_screen>
-    <sys_translated_text action="delete_multiple" query="documentkey=07202f386e7302109f05865083b3da1f"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=8398b51a47bf0210c637224f316d434d"/>
 </record_update>
